@@ -11,3 +11,6 @@ Final project for the course LTW, Airbnb look alike
 
 ### Messages, Individual Messages & Edit Profile
 ![Messages](https://github.com/TheGX/LTW/blob/master/documentation/Messages_Edit.png)
+
+### Upcoming Trips
+![Upcoming Trips](https://github.com/TheGX/LTW/blob/master/documentation/LTWproject-Trips.png)
