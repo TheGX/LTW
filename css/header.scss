@@ -1,0 +1,47 @@
+
+body {
+    background-color: #add8e6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    .nav-bar {
+        width: 100%;
+        text-align: center;
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+
+            .nav-item {
+                float: left;
+            }
+
+            #home-button {
+                width: 10%;
+            }
+
+            #welcome-prompt {
+                text-align: right;
+                width: 45%;
+            }
+
+            #user-section {
+                width: 45%;
+            
+                #login-form > * {
+                    width: 50%;
+                    padding:  20px;
+                    margin: 8px 0;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                }
+                #login-form > {
+
+                }
+            }
+
+        }
+    }
+}
