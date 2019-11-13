@@ -1,0 +1,30 @@
+body {
+  background-color: #add8e6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  body .nav-bar {
+    width: 100%;
+    text-align: center; }
+    body .nav-bar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; }
+      body .nav-bar ul .nav-item {
+        float: left; }
+      body .nav-bar ul #home-button {
+        width: 10%; }
+      body .nav-bar ul #welcome-prompt {
+        text-align: right;
+        width: 45%; }
+      body .nav-bar ul #user-section {
+        width: 45%; }
+        body .nav-bar ul #user-section #login-form > * {
+          width: 50%;
+          padding: 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box; }
+
+/*# sourceMappingURL=header.css.map */
