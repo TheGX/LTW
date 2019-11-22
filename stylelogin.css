@@ -1,0 +1,76 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body > header{
+    padding: 0em 1em;
+    border-bottom: grey;
+    border-bottom-style: solid;
+}
+
+body > header a{
+    text-decoration: none;
+    color: black;
+}
+
+body > header h2 input[type=text]{
+    padding: 10px;
+    border: 1px solid grey;
+    background: white;
+}
+
+body > header h2 input[type=text]::placeholder{
+    color: black;
+}
+body > header h2 input:focus::-webkit-input-placeholder{
+    color: grey;
+}
+body > header h2 button{
+  padding: 10px;
+  background: white;
+  color: #2196F3;
+  border: 1px solid grey;
+  border-left: none;
+}
+
+body >header nav a{
+    padding: 3em 3em;
+}
+
+body > form {
+    padding: 1em 2em;
+    text-align: left;
+}
+
+body > form h3{
+    font-size: 2em;
+    border-bottom: 2px solid lightblue;
+}
+
+body > form label {
+    font-size: 1.5em;
+}
+
+body > form label input{
+    font-size: 1em;
+    border: 1px solid black;
+}
+
+body input[type=submit]{
+    background-color: #008CFF;
+    color: white;
+}
+
+body > div {
+    padding: 1em 2em;
+    text-align: left;
+}
+
+body div#forgot a{
+    text-decoration: none;
+    color: #008CFF;
+}
+
+body  div#newUser input[type=submit]{
+    display: block;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="layoutheader.css" rel="stylesheet">
+    <link href="headerstyle.css" rel="stylesheet">
+    <link href="layoutprofile.css" rel="stylesheet">
+    <link href="styleprofile.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Final Project</title>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html"><img src="pictures/houserental.png" alt="House Rental Icon"></a></h1>
+        <h2>
+            <form action="text">
+               <input type="text" name="seach" placeholder="Search">
+               <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </h2>
+        <nav>
+            <a href="login.html"> TRIPS</a>
+            <a href="register.html"> MESSAGES</a>
+            <div id="mininav">
+                <img src="pictures/userpic.png" alt="User Profile Pic">
+                <select>
+                    <option value="Profile"><a href="profile.html">Profile</a></option>
+                    <option value="Log Out"><a href="login.html"></a> Log Out</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+    <section id="content">
+        <section id="sideInfo">
+            <img src="pictures/bigprofilepic.png" alt="Profile Picture">
+            <article>
+                <p>User provided </p>
+                <p>Email address</p>
+                <p>Phone Number</p>
+            </article>
+        </section>
+        <section id="touristInfo">
+            <header>
+                <h3>Tourist's Name</h3>
+            </header>
+            <input type="submit" value="Edit Profile">
+            <h4>Brief biography of the user</h4>
+            <p>Lives in: XXXXXX XXXXXXX</p>
+            <p>Speaks: XXXXXXX XXXXXXXXx</p>
+            <p>Work: XXXXX</p>
+        </section>
+        <section id="hostlink">
+                <a href="profile.html">See your Host Profile</a>
+        </section>
+        <section id="reviews">
+            <header>
+                <h3>Reviews</h3>
+            </header>
+            <article>
+                <header>
+                    <span id="author">Tom, Paris, France</span>
+                    <span id="date">September 2019</span>
+                </header>
+                <p>User is the perfect guest, very friendly and nice.</p>
+                <p>Highly recommend</p>
+            </article>
+            
+            <article>
+                <header>
+                    <span id="author">Hollie, Madrid, Spain</span>
+                    <span id="date">July 2019</span>
+                </header>
+                <p>Etiam massa magna, dictum ac purus. Proin dignissim dolor nec scelerisque bibendum. Maecenas iaculis erat id, convallis arcu. Ut imperdiet, eros dui laoreet enim, fermentum urna. Vestibulum orci luctus et Curae arcu, ut porta massa iaculis sit amet.</p>
+                <p>Quisque a dapibus magna, non scelerisque</p>
+            </article>
+            
+            <article>
+                <header>
+                    <span id="author"> Hollie, Porto, Portugal</span>
+                    <span id="date">June 2019</span>
+                </header>
+                <p>User was a good guest,respectfull and clean.</p>
+                <p>Quisque a dapibus magna, non scelerisque</p>
+            </article>
+        </section>
+    </section>
+    <footer>
+        <nav>
+            <ul id="nextComments">
+                <li><a href="profile.html">&lt&lt Prev</a></li>
+                <li><a href="profile.html">1</a></li>
+                <li><a href="profile.html">2</a></li>
+                <li><a href="profile.html">3</a></li>
+                <li><a href="profile.html">Next &gt&gt</a></li>
+            </ul>
+    </nav>  
+    </footer>
+</body>
+</html>
