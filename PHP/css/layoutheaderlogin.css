@@ -1,0 +1,23 @@
+body > header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    align-items: center;
+}
+
+body > header h2 form{
+    grid-column: 2;
+}
+
+body > header h2 input[type=text]{
+    float: left;
+    width: 60%;
+}
+
+body > header h2 button{
+    width: 20%;
+}
+
+body > header nav{
+    grid-column: 4;
+}
+

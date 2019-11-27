@@ -1,0 +1,31 @@
+body section#content{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 0.5fr 1fr 1.5fr;
+    grid-template-areas:    "user-info Touristcontent clearspace"
+                            "TouristProfile Hostlisting clearspace"
+                            "anotherclearspace Reviews clearspace"
+;}
+
+body section#sideInfo{
+    grid-area: user-info;
+}
+
+body > section #hostInfo {
+    height: 70%;
+    grid-area: Touristcontent;
+}
+body >section#content #touristlink {
+    grid-area: TouristProfile;
+}
+body > section #hostlistings {
+    grid-area: Hostlisting;
+}
+body > section #reviews {
+    grid-area: Reviews;
+}
+
+body #nextComments>li{
+    color: black;
+    display: inline;
+}

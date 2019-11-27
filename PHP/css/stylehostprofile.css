@@ -1,0 +1,102 @@
+/* USER */
+body #sideInfo{
+    padding: 1em 1.5em;
+}
+body #sideInfo article {
+    width: 69%;
+    border: 2px solid grey;
+    text-indent: 1em;
+}
+
+
+/* Tourist Info*/
+body #hostInfo{
+    padding: 2em 2em;
+    border: 2px solid grey;
+}
+body #hostInfo >header> h3{
+    padding-top: 0;
+    
+    font-size: 2em;
+}
+body #hostInfo>p{
+    text-indent: 1em;
+}
+
+/* Host Link*/
+body #touristlink {
+    padding: 2em 1.5em;
+}
+body #touristlink a{
+    padding: 2em 0em;
+    border: 2px solid grey;
+    align-content: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+/*Host listings */
+body #hostlistings{
+    padding: 2em 2em;
+    border: 2px solid grey;
+    display: inline;
+}
+body section#hostlistings nav a{
+    display: flexbox;
+    text-decoration: none;
+    color: black;
+}
+
+body section#hostlistings nav a>img{
+    align-content: left;
+}
+body section#hostlistings nav a p{
+    text-align: left;
+}
+
+body #hostlistings > header > h3{
+    font-size: 2em;
+}
+
+
+/* Reviews*/
+body #reviews{
+    padding: 2em 2em;
+    border: 2px solid grey;
+}
+body #reviews > header > h3{
+    font-size: 2em;
+}
+
+body section#reviews article header span{
+    display: block;
+}
+body section#reviews #author{
+    margin-top: 3em;
+    font-weight: bold;
+    font-size: 1.3em ;
+}
+body section#reviews #date{
+    font-size: 0.9em ;
+}
+body section#reviews article p{
+    text-align: left;
+}
+body section#reviews article p:last-child{
+    border-bottom: 2px solid grey;
+    
+}
+
+/* FOOTER*/
+body>footer {
+    text-align: center;
+}
+body>footer #nextComments li a{
+    color: #008CFF;
+}
+
+body input[type=submit]{
+    background-color: #008CFF;
+    color: white;
+}

@@ -1,0 +1,19 @@
+body section#content{
+    display: grid;
+    grid-template-columns: 0.3fr 1fr 0.3fr;
+    grid-template-rows: 0.1fr 1fr 1fr;
+    grid-template-areas: "clearspace Filters whitespace"
+                         "clearspace Listings whitespace"
+                         "clearspace Listings whitespace";
+}
+
+body section#filters{
+    grid-area: Filters;
+}
+body section#filters form{
+    display: inline;
+}
+body section#listingFeed{
+    grid-area: Listings;
+    text-align: center;
+}
