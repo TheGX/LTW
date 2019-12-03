@@ -1,6 +1,6 @@
 <?php function draw_login(){
     ?>
-    <form action="action_login.php" method="post">
+    <form action="../action_login.php" method="post">
         <h3>Log in</h3>
         <label>
             User Name: <input type="text" name="username">
@@ -15,7 +15,7 @@
     </div>
     <div id="newUser">
         New User?
-        <a href="login.html"> 
+        <a href="register.php"> 
             <input type="submit" value="SIGN UP">
         </a>
     </div>
@@ -23,7 +23,7 @@
 
 <?php function draw_register() {
     ?>
-    <form action="action_register.php" method="post">
+    <form action="../action_register.php" method="post">
         <h3>Register</h3>
         <label>
             User Name: <input type="text" name="username">

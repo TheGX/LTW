@@ -1,11 +1,31 @@
 <?php 
     include_once('../templates/tpl_common.php');
-
+    include_once('../templates/tpl_feed.php');
     draw_header('feed');
 ?>
+<?php
+  $listings = array(
+        array( 
+            'listing_id' => 1,
+            'listing_image' =>'pictures/FeedHouse1.png',
+            'listing_type' => 'Entire Home/APT', 
+            'listing_title' => '5 BEDS Modern Downtown Barcelona House',
+            'listing_pricePerNight' => '150',
+            'listing_guests' => 8,
+            'listing_beds' => '5',
+        ),array( 
+            'listing_id' => 2,
+            'listing_image' =>'pictures/FeedHouse2.png',
+            'listing_type' => 'Entire Home/APT', 
+            'listing_title' => '5 BEDS Modern Downtown Barcelona House',
+            'listing_pricePerNight' => '150',
+            'listing_guests' => 8,
+            'listing_beds' => '5',       
+        )
+    )    ?>
     <section id="content">
         <section id="filters">
-            <form action="action_filter.php" method="post" id="date">
+            <form action="../action_filter.php" method="post" id="date">
                 <select name="date">
                     <option value="" disabled selected>Date</option>
                     <option value="Example date">Example Date</option>            
@@ -32,7 +52,8 @@
                 <input type="submit" value="Submit">
             </form>
         </section>
-        <section id="listingFeed">
+        <?php draw_listings($listings); 
+        /*<section id="listingFeed">
             <section id="houselist1">
                 <img src="pictures/FeedHouse1.png" alt="1st House in feed">
                 <section id="viewMore">
@@ -63,7 +84,7 @@
                     <p id="houseFilters">Wifi, Free Parking</p>    
                 </section>
             </section>
-        </section>
+        </section>*/?>
     </section>
 
 <?php 
