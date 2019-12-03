@@ -31,9 +31,9 @@
         </head>
         <body>
             <header>
-                <h1><a href="index.html"><img src="pictures/houserental.png" alt="House Rental Icon"></a></h1>
+                <h1><a href="feed.php"><img src="pictures/houserental.png" alt="House Rental Icon"></a></h1>
                 <h2>
-                    <form action="searchBar">
+                    <form action="action_search.php" method="post">
                     <input type="text" name="seach" placeholder="Search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
@@ -48,11 +48,12 @@
                         <a href="login.html"> TRIPS</a>
                         <a href="register.html"> MESSAGES</a>
                         <div id="mininav">
-                            <img src="pictures/userpic.png" alt="User Profile Pic">
-                            <select>
-                                <option value="Profile"><a href="profile.html">Profile</a></option>
-                                <option value="Log Out"><a href="login.html"></a> Log Out</option>
-                            </select>
+                            <figure>
+                                <a href="touristprofile.php"><img src="pictures/userpic.png" alt="User Profile Pic"></a>
+                                <figcaption> 
+                                    <a href="login.html">Log Out</a>     
+                                </figcaption>
+                            </figure>
                         </div>
                     </nav>
                 <?php } ?>

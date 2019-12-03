@@ -5,13 +5,11 @@
 ?>
     <section id="content">
         <section id="filters">
-            <form action="Date" id="date">
+            <form action="action_filter.php" method="post" id="date">
                 <select name="date">
                     <option value="" disabled selected>Date</option>
                     <option value="Example date">Example Date</option>            
                 </select>
-            </form>
-            <form action="nGuest" id="nGuest">
                 <select name="nGuest">
                     <option value="" disabled selected>Nº of Guests</option>
                     <option value="1">1</option>
@@ -19,15 +17,11 @@
                     <option value="3">3</option>
                     <option value="4">4</option>            
                 </select>
-            </form>
-            <form action="Listingtype" id="listingtype">
                 <select name="listingtype">
                     <option value="" disabled selected>Type of Place</option>
                     <option value="Appartment">Appartment</option>
                     <option value="EntireHome">Entire Home</option>            
                 </select>
-            </form>
-            <form action="pricePerNight" id="price">
                 <select name="price">
                     <option value="" disabled selected>Price per night</option>
                     <option value="-50">&lt50</option>

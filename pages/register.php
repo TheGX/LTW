@@ -3,10 +3,10 @@
   include_once('../templates/tpl_auth.php');
 
   draw_header("login");
-  draw_login();
+  draw_register();
   draw_footer();
   
-  if( isset( $_GET['username'] && $_GET['password'] && $_GET['confirmpassword'])) {
+  if( isset($_GET['username']) && isset($_GET['password']) && isset($_GET['confirmpassword'])) {
     if ($_GET['username'] === '' && $_GET['password'] === '' && $_GET['confirmpassword'] === '') {
       header('Location: feed.php');
     }

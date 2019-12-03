@@ -1,6 +1,6 @@
 body > header {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
 }
 
@@ -19,11 +19,12 @@ body > header h2 button{
 
 body > header nav{
     grid-column: 4;
+    margin: auto 0em;
 }
 
 body > header nav div#mininav{
     display: inline-block;
 }
-body > header nav div#mininav select{
-    display: block;
+body > header nav div#mininav figcaption{
+    text-align: center;
 }
