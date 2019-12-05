@@ -21,6 +21,7 @@ CREATE TABLE Houses (
     Street          TEXT    NOT NULL,
     ZIPCode         TEXT    NOT NULL,
     Thumbnail       TEXT    NOT NULL,
+    DailyCost       DECIMAL NOT NULL,
     Picture1        TEXT,
     Picture2        TEXT,
     Picture3        TEXT,
@@ -34,7 +35,6 @@ CREATE TABLE Houses (
     SingleBeds      INTEGER,
     DoubleBeds      INTEGER,
     Description     TEXT,
-    DailyCost       DECIMAL,
     HouseType       TEXT
 );
 
@@ -74,5 +74,4 @@ INSERT INTO Users VALUES (
     NULL, --Biography
     NULL, --Phone
     NULL  --Picture
-    
 );
