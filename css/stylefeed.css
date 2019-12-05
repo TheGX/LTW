@@ -1,6 +1,6 @@
 /* LISTINGS*/
 
-body section#houselist1{
+body section#houselist{
     padding-top: 1em;
 }
 
@@ -17,12 +17,12 @@ body section#info p#price{
 }
 
 
-
 body section#listingFeed section#viewMore{
     text-align: right;
 }
 body section#listingFeed section#viewMore a{
     text-decoration: none;
+    background-color: aqua;
     color: black;
     border: 1px solid black;
 }

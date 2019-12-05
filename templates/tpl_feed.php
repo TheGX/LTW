@@ -1,7 +1,6 @@
 
 <?php function draw_listings($listings){
  /** 
- * 
  * Draws a section (#listingFeed) containging 
  * several listings. 
  * Uses draw_listing function to draw each 
@@ -10,14 +9,14 @@
         <?php 
             foreach($listings as $listing)
                 draw_listing($listing);
-        ?>
-<?php } ?>
+        
+}?>
 
 <?php function draw_listing($listing){
 /**
  * Draws a single listing
  */ ?>
-    <section id="houselist">
+    <section class="houselist">
         <img src="<?=$listing['listing_image']?>" alt="1st House in feed">
         <section id="viewMore">
             <a href="Houselisting.html">View more</a>
