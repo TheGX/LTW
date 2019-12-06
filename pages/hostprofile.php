@@ -85,7 +85,7 @@
                 <li><a href="profile.html">3</a></li>
                 <li><a href="profile.html">Next &gt&gt</a></li>
             </ul>
-    </nav>  
+        </nav>  
     </footer>
 
 <?php 

@@ -17,17 +17,17 @@
  * Draws a single listing
  */ ?>
     <section class="houselist">
-        <img src="<?=$listing['listing_image']?>" alt="1st House in feed">
+        <img src="<?=$listing['Thumbnail']?>" alt="1st House in feed">
         <section class="viewMore">
             <a href="Houselisting.html">View more</a>
         </section>
         <section class="info">
             <header>
-                <h5><?=$listing['listing_type']?></h5>
-                <h4><?=$listing['listing_title']?></h4>
+                <h5><?=$listing['HouseType']?></h5>
+                <h4><?=$listing['Title']?></h4>
             </header>
-            <p class="price"><?=$listing['listing_pricePerNight']?>€/night</p>
-            <p class="nGuestnBeb"><?=$listing['listing_guests']?> guests, <?=$listing['listing_beds']?> beds</p>
+            <p class="price"><?=$listing['DailyCost']?>€/night</p>
+            <p class="nGuestnBeb"><?=$listing['SingleBeds'] +2*$listing['DoubleBeds']?> guests, <?=$listing['SingleBeds'] + 2*$listing['DoubleBeds']?> beds</p>
             <p class="houseFilters">Wifi, Kitchen, Heating</p>    
         </section>
     </section>

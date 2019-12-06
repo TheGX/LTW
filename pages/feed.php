@@ -1,28 +1,14 @@
 <?php 
     include_once('../templates/tpl_common.php');
     include_once('../templates/tpl_feed.php');
+    include_once('../database/connection.php');
+    include_once('../database/houses.php');
+
     draw_header('feed');
     
-    $listings = array(
-        array( 
-            'listing_id' => 1,
-            'listing_image' =>'pictures/FeedHouse1.png',
-            'listing_type' => 'Entire Home/APT', 
-            'listing_title' => '5 BEDS Modern Downtown Barcelona House',
-            'listing_pricePerNight' => '150',
-            'listing_guests' => 8,
-            'listing_beds' => '5',
-        ),array( 
-            'listing_id' => 2,
-            'listing_image' =>'pictures/FeedHouse2.png',
-            'listing_type' => 'Entire Home/APT', 
-            'listing_title' => '5 BEDS Modern Downtown Barcelona House',
-            'listing_pricePerNight' => '150',
-            'listing_guests' => 8,
-            'listing_beds' => '5',       
-        )
-    )    ?>
-    <section id="content">
+    $listings=getAllHouses();
+    
+?>  <section id="content">
         <section id="filters">
             <form action="../action_filter.php" method="post" id="date">
                 <select name="date">
