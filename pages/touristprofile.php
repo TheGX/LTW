@@ -16,14 +16,16 @@
             <header>
                 <h3>Tourist's Name</h3>
             </header>
-            <input type="submit" value="Edit Profile">
+            <form action="../action_editProfile.php">
+                <input type="submit" value="Edit Profile">
+            </form>
             <h4>Brief biography of the user</h4>
             <p>Lives in: XXXXXX XXXXXXX</p>
             <p>Speaks: XXXXXXX XXXXXXXXx</p>
             <p>Work: XXXXX</p>
         </section>
         <section id="hostlink">
-                <a href="profile.html">See your Host Profile</a>
+                <a href="hostprofile.php">See your Host Profile</a>
         </section>
         <section id="reviews">
             <header>

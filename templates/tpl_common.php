@@ -31,14 +31,14 @@
         <body>
             <header>
                 <h1><a href="feed.php"><img src="pictures/houserental.png" alt="House Rental Icon"></a></h1>
-                <form action="action_search.php" method="post">
-                <input type="text" name="seach" placeholder="Search">
+                <form action="../action_search.php" method="post">
+                <input type="text" name="search" placeholder="Search">
                 <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
                 <?php if($file == "login"){ ?>
                     <nav>
-                        <a href="login.html"> SIGN IN</a>
-                        <a href="register.html"> REGISTER</a>
+                        <a href="../pages/login.php"> SIGN IN</a>
+                        <a href="../pages/register.php"> REGISTER</a>
                     </nav>
                 <?php } else { ?>
                     <nav>
@@ -48,7 +48,7 @@
                             <figure>
                                 <a href="touristprofile.php"><img src="pictures/userpic.png" alt="User Profile Pic"></a>
                                 <figcaption> 
-                                    <a href="login.html">Log Out</a>     
+                                    <a href="../pages/login.php">Log Out</a>     
                                 </figcaption>
                             </figure>
                         </div>
