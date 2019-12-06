@@ -13,19 +13,19 @@ body > header a{
     color: black;
 }
 
-body > header h2 input[type=text]{
+body > header input[type=text]{
     padding: 10px;
     border: 1px solid grey;
     background: white;
 }
 
-body > header h2 input[type=text]::placeholder{
+body > header input[type=text]::placeholder{
     color: black;
 }
-body > header h2 input:focus::-webkit-input-placeholder{
+body > header input:focus::-webkit-input-placeholder{
     color: grey;
 }
-body > header h2 button{
+body > header button{
   padding: 10px;
   background: white;
   color: #2196F3;

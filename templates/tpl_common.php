@@ -8,8 +8,7 @@
             <?php if($file === "login"){ ?>
                 <link href="../css/layoutlogin.css" rel="stylesheet">  
                 <link href="../css/layoutheaderlogin.css" rel="stylesheet">
-                <link href="../css/stylelogin.css" rel="stylesheet">
-                
+                <link href="../css/stylelogin.css" rel="stylesheet">      
             <?php } elseif ($file === "feed") { ?>
                 <link href="../css/layoutheader.css" rel="stylesheet">
                 <link href="../css/headerstyle.css" rel="stylesheet">
@@ -32,12 +31,10 @@
         <body>
             <header>
                 <h1><a href="feed.php"><img src="pictures/houserental.png" alt="House Rental Icon"></a></h1>
-                <h2>
-                    <form action="action_search.php" method="post">
-                    <input type="text" name="seach" placeholder="Search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-                </h2>
+                <form action="action_search.php" method="post">
+                <input type="text" name="seach" placeholder="Search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
                 <?php if($file == "login"){ ?>
                     <nav>
                         <a href="login.html"> SIGN IN</a>

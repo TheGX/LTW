@@ -88,12 +88,12 @@ body #reviews > header > h3{
 body section#reviews article header span{
     display: block;
 }
-body section#reviews #author{
+body section#reviews .author{
     margin-top: 3em;
     font-weight: bold;
     font-size: 1.3em ;
 }
-body section#reviews #date{
+body section#reviews .date{
     font-size: 0.9em ;
 }
 body section#reviews article p{

@@ -4,16 +4,16 @@ body > header {
     align-items: center;
 }
 
-body > header h2 form{
+body > header form{
     grid-column: 2;
 }
 
-body > header h2 input[type=text]{
+body > header input[type=text]{
     float: left;
     width: 60%;
 }
 
-body > header h2 button{
+body > header button{
     width: 20%;
 }
 

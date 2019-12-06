@@ -15,9 +15,9 @@
     </div>
     <div id="newUser">
         New User?
-        <a href="register.php"> 
+        <form action="register.php">
             <input type="submit" value="SIGN UP">
-        </a>
+        </form>
     </div>
 <?php } ?>
 

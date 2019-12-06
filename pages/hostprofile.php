@@ -30,14 +30,14 @@
                 <h3>Host's listings</h3>
             </header>
             <nav>
-                <a href="listing.html" id="listinglink">
+                <a href="listing.html" class="listinglink">
                     <img src="pictures/Housepic1.png" alt="House picture">
-                    <h4 id="listingTitle"> ENTIRE HOME/APT </h4>
+                    <h4 class="listingTitle"> ENTIRE HOME/APT </h4>
                     <p> 5 BEDS Modern Downtown Barcelona House</p>
                 </a>
-                <a href="listing.html" id="listinglink">
+                <a href="listing.html" class="listinglink">
                     <img src="pictures/Housepic2.png" alt="House picture">
-                    <h4 id="listingTitle">ENTIRE HOME/APT</h4>  
+                    <h4 class="listingTitle">ENTIRE HOME/APT</h4>  
                     <p>4 BEDS Spacious Countryside Chalet</p>
                 </a>
             </nav>
@@ -48,8 +48,8 @@
             </header>
             <article>
                 <header>
-                    <span id="author">Tom, Paris, France</span>
-                    <span id="date">September 2019</span>
+                    <span class="author">Tom, Paris, France</span>
+                    <span class="date">September 2019</span>
                 </header>
                 <p>User is the perfect guest, very friendly and nice.</p>
                 <p>Highly recommend</p>
@@ -57,8 +57,8 @@
             
             <article>
                 <header>
-                    <span id="author">Hollie, Madrid, Spain</span>
-                    <span id="date">July 2019</span>
+                    <span class="author">Hollie, Madrid, Spain</span>
+                    <span class="date">July 2019</span>
                 </header>
                 <p>Etiam massa magna, dictum ac purus. Proin dignissim dolor nec scelerisque bibendum. Maecenas iaculis erat id, convallis arcu. Ut imperdiet, eros dui laoreet enim, fermentum urna. Vestibulum orci luctus et Curae arcu, ut porta massa iaculis sit amet.</p>
                 <p>Quisque a dapibus magna, non scelerisque</p>
@@ -66,8 +66,8 @@
             
             <article>
                 <header>
-                    <span id="author"> Hollie, Porto, Portugal</span>
-                    <span id="date">June 2019</span>
+                    <span class="author"> Hollie, Porto, Portugal</span>
+                    <span class="date">June 2019</span>
                 </header>
                 <p>User was a good guest,respectfull and clean.</p>
                 <p>Quisque a dapibus magna, non scelerisque</p>

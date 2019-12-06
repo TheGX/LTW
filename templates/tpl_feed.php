@@ -18,17 +18,17 @@
  */ ?>
     <section class="houselist">
         <img src="<?=$listing['listing_image']?>" alt="1st House in feed">
-        <section id="viewMore">
+        <section class="viewMore">
             <a href="Houselisting.html">View more</a>
         </section>
-        <section id="info">
+        <section class="info">
             <header>
                 <h5><?=$listing['listing_type']?></h5>
                 <h4><?=$listing['listing_title']?></h4>
             </header>
-            <p id="price"><?=$listing['listing_pricePerNight']?>€/night</p>
-            <p id="nGuestnBeb"><?=$listing['listing_guests']?> guests, <?=$listing['listing_beds']?> beds</p>
-            <p id="houseFilters">Wifi, Kitchen, Heating</p>    
+            <p class="price"><?=$listing['listing_pricePerNight']?>€/night</p>
+            <p class="nGuestnBeb"><?=$listing['listing_guests']?> guests, <?=$listing['listing_beds']?> beds</p>
+            <p class="houseFilters">Wifi, Kitchen, Heating</p>    
         </section>
     </section>
 <?php } ?>

@@ -1,28 +1,27 @@
 /* LISTINGS*/
 
-body section#houselist{
+body section.houselist{
     padding-top: 1em;
 }
 
-body section#info {
+body section.info {
     border: 1px solid grey;    
     text-align: left;
     color: darkslategrey;
     padding: 0 1em;
 }
-body section#info p#price{
+body section.info p.price{
     float: right;
     border: 1px solid grey;
     padding: 0 1em;
 }
 
 
-body section#listingFeed section#viewMore{
+body section#listingFeed section.viewMore{
     text-align: right;
 }
-body section#listingFeed section#viewMore a{
+body section#listingFeed section.viewMore a{
     text-decoration: none;
-    background-color: aqua;
     color: black;
     border: 1px solid black;
 }
