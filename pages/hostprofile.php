@@ -5,6 +5,8 @@
 
     draw_header('hostprofile');
     $User = getInfoFromUsername($_SESSION['username']);
+    // This should return a array of arrayse
+    $UserHouses=getHousesFromOwner($User['ID']);
 ?>
     <section id="content">
         <section id="sideInfo">
@@ -34,17 +36,19 @@
             <header>
                 <h3>Host's listings</h3>
             </header>
+            <?php foreach($UserHouses as $listings) 
+                    foreach($listings as $listing)?>
             <nav>
                 <a href="listing.html" class="listinglink">
                     <img src="pictures/Housepic1.png" alt="House picture">
-                    <h4 class="listingTitle"> ENTIRE HOME/APT </h4>
-                    <p> 5 BEDS Modern Downtown Barcelona House</p>
+                    <h4 class="listingTitle"> <?=$listing['HouseType']?> </h4>
+                    <p> <?=$listing['Title']?></p>
                 </a>
-                <a href="listing.html" class="listinglink">
+                <!-- <a href="listing.html" class="listinglink">
                     <img src="pictures/Housepic2.png" alt="House picture">
                     <h4 class="listingTitle">ENTIRE HOME/APT</h4>  
                     <p>4 BEDS Spacious Countryside Chalet</p>
-                </a>
+                </a> -->
             </nav>
         </section>
         <section id="reviews">
