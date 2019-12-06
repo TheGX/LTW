@@ -31,7 +31,7 @@
         <body>
             <header>
                 <h1><a href="feed.php"><img src="pictures/houserental.png" alt="House Rental Icon"></a></h1>
-                <form action="../action_search.php" method="post">
+                <form action="../actions/action_search.php" method="post">
                 <input type="text" name="search" placeholder="Search">
                 <button type="submit"><i class="fa fa-search"></i></button>
                 </form>

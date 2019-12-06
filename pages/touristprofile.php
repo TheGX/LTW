@@ -16,7 +16,7 @@
             <header>
                 <h3>Tourist's Name</h3>
             </header>
-            <form action="../action_editProfile.php">
+            <form action="../actions/action_editProfile.php">
                 <input type="submit" value="Edit Profile">
             </form>
             <h4>Brief biography of the user</h4>

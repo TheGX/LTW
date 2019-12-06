@@ -10,7 +10,7 @@
     
 ?>  <section id="content">
         <section id="filters">
-            <form action="../action_filter.php" method="post" id="date">
+            <form action="../actions/action_filter.php" method="post" id="date">
                 <select name="date">
                     <option value="" disabled selected>Date</option>
                     <option value="Example date">Example Date</option>            
