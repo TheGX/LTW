@@ -1,4 +1,3 @@
-
 <?php function draw_listings($listings){
  /** 
  * Draws a section (#listingFeed) containging 

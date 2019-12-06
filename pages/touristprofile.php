@@ -1,28 +1,30 @@
 <?php 
     include_once('../templates/tpl_common.php');
+    include_once('../database/users.php');
 
     draw_header('touristprofile');
+    $User = getInfoFromUsername($_SESSION['username']);
 ?>
     <section id="content">
         <section id="sideInfo">
             <img src="pictures/bigprofilepic.png" alt="Profile Picture">
             <article>
-                <p>User provided </p>
-                <p>Email address</p>
-                <p>Phone Number</p>
+                <p><?= $User['Username']?></p>
+                <p><?= $User['Email']?></p>
+                <p><?= $User['PhoneNumber']?></p>
             </article>
         </section>
         <section id="touristInfo">
             <header>
-                <h3>Tourist's Name</h3>
+                <h3><?= $User['Name']?></h3>
             </header>
             <form action="../actions/action_editProfile.php">
                 <input type="submit" value="Edit Profile">
             </form>
-            <h4>Brief biography of the user</h4>
-            <p>Lives in: XXXXXX XXXXXXX</p>
-            <p>Speaks: XXXXXXX XXXXXXXXx</p>
-            <p>Work: XXXXX</p>
+            <h4><?= $User['Biography']?></h4>
+            <p>Lives in: <?= $User['Address']?></p>
+            <p>Speaks: <?= $User['LanguagesSpoken']?></p>
+            <p>Work: <?= $User['Profession']?></p>
         </section>
         <section id="hostlink">
                 <a href="hostprofile.php">See your Host Profile</a>

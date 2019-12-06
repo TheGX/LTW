@@ -1,5 +1,6 @@
 <?php
     include_once('connection.php');
+    
     // Adds user to the Database (WORKING)
     function createUser($username, $password, $name, $email) {
         global $conn;
