@@ -48,10 +48,10 @@
 	function filterHouses($start, $end, $guests, $minPrice, $maxPrice) {
 		global $conn;
 
-		$stmt = $conn->prepare('SELECT Houses.*, Reservation.StartDate, Reservation.EndDate FROM Houses
+		$stmt = $conn->prepare('SELECT Houses.*, (Houses.SingleBeds + 2*Houses.DoubleBeds) AS Guests, Reservation.StartDate, Reservation.EndDate FROM Houses
 								LEFT JOIN Reservation ON Reservation.HouseID = Houses.ID
 								WHERE ((Reservation.StartDate > ? OR Reservation.EndDate < ?))
-								AND (SingleBeds + 2*DoubleBeds) > ? 
+								AND Guests > ? 
 								AND DailyCost > ?
 								AND DailyCost < ?');
 		$stmt->execute($start, $end, $guests, $minPrice, $maxPrice);

@@ -17,8 +17,8 @@
     <h1>
         <?php
             //createUser($username, $password, $name, $email);
-            $houseID = 1;
-            //createReservation(getInfoFromUsername("nunogomes")['ID'], $houseID, "12-6-2019", "12-7-2019", getRentPrice($houseID))
+            $houseID = 2;
+            //createReservation(getInfoFromUsername("malobo")['ID'], $houseID, "12-6-2019", "12-7-2019", getRentPrice($houseID))
         ?>
     </h1>
 
@@ -32,7 +32,7 @@
     //createHouse(getInfoFromUsername("marquerere")['ID'], "big house", json_encode($address), "housebig.jpg", 420);
     foreach(getAllHouses() as $house) {
 ?>
-        <h1>Title: <?php echo($house['DailyCost'])?></h1>
+        <h1>All houses: <?php echo($house['DailyCost'])?></h1>
 <?php 
     }
 
@@ -45,6 +45,16 @@
     foreach(getHousesFromOwner(getInfoFromUsername("nunogomes")['ID']) as $house) {
 ?>
         <h1>House: <?php echo($house['Title'])?></h1>
+<?php
+        foreach(getReservationsInHouse($house['ID']) as $reservation) {
+?>
+            <h1>Reservation by <?php echo(getInfoFromID($reservation['GuestID'])['Username'])?></h1>
+<?php
+        }
+    }
+    foreach(getReservationsFromUser(getInfoFromUsername("malobo")['ID']) as $reservation) {
+?>
+        <h1>Reservations from user: <?php echo($reservation['GuestID'])?></h1>
 <?php
     }
 ?>
