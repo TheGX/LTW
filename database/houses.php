@@ -5,7 +5,7 @@
 
       $address = json_decode($addressEncoded);
 
-      $stmt = $conn->prepare('INSERT INTO Houses VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)');
+      $stmt = $conn->prepare('INSERT INTO Houses VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?, NULL, NULL, NULL, NULL, NULL)');
       $stmt->execute([$owner, $title, $address->{'Country'}, $address->{'City'}, $address->{'Street'}, $address->{'ZIPCode'}, $thumbnail, $dailyCost]);
 
       return $stmt->fetch();
@@ -44,6 +44,7 @@
 		return $stmt->fetchAll();
 	}
 
+
 	// To be used by the TOP OF PAGE FORM (UNTESTED)
 	function filterHouses($start, $end, $guests, $minPrice, $maxPrice) {
 		global $conn;
@@ -65,5 +66,48 @@
 		$stmt = $conn->prepare('SELECT DailyCost FROM Houses WHERE ID = ?');
 		$stmt->execute(array($ID));
 		return $stmt->fetch()['DailyCost'];
+	}
+
+	function addPicture($house, $file) {
+		global $conn;
+
+		$stmt = $conn->prepare('INSERT INTO Pictures VALUES(NULL, ?, ?)');
+			$stmt->execute([$house, $file]);
+		return $stmt->fetch();
+	}
+	function editRooms($house, $single, $double, $bathroom) {
+		global $conn;
+        $stmt = $conn->prepare('UPDATE Houses 
+                                SET SingleBeds = ?, DoubleBeds = ?, Bathrooms = ?
+                                WHERE ID = ?');
+
+		$stmt->execute([$single, $double, $bathroom, $house]);
+        return $stmt->fetch();
+	}
+	function editDescription($house, $description) {
+		global $conn;
+        $stmt = $conn->prepare('UPDATE Houses 
+                                SET Description = ?
+                                WHERE ID = ?');
+
+		$stmt->execute([$description, $house]);
+        return $stmt->fetch();
+	}
+	function editType($house, $type) {
+		global $conn;
+        $stmt = $conn->prepare('UPDATE Houses 
+                                SET HouseType = ?
+                                WHERE ID = ?');
+
+		$stmt->execute([$type, $house]);
+        return $stmt->fetch();
+	}
+
+	function getHousePictures($house) {
+		global $conn;
+
+		$stmt = $conn->prepare('SELECT Picture FROM Pictures WHERE HouseID = ?');
+		$stmt->execute(array($house));
+		return $stmt->fetchAll();
 	}
 ?>

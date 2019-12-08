@@ -22,15 +22,6 @@ CREATE TABLE Houses (
     ZIPCode         TEXT    NOT NULL,
     Thumbnail       TEXT    NOT NULL,
     DailyCost       DECIMAL NOT NULL,
-    Picture1        TEXT,
-    Picture2        TEXT,
-    Picture3        TEXT,
-    Picture4        TEXT,
-    Picture5        TEXT,
-    Picture6        TEXT,
-    Picture7        TEXT,
-    Picture8        TEXT,
-    Picture9        TEXT,
     Bathrooms       INTEGER,
     SingleBeds      INTEGER,
     DoubleBeds      INTEGER,
@@ -52,6 +43,14 @@ CREATE TABLE Reservation (
     HouseRating INTEGER,
     GuestRating INTEGER
 );
+
+CREATE TABLE Pictures (
+    ID          INTEGER PRIMARY KEY,
+    HouseID     INTEGER NOT NULL REFERENCES Houses,
+    Picture     TEXT    NOT NULL UNIQUE
+);  
+
+
 
 CREATE TABLE Chat (
   ID            INTEGER     PRIMARY KEY,
