@@ -26,7 +26,7 @@
                 <h4><?=$listing['Title']?></h4>
             </header>
             <p class="price"><?=$listing['DailyCost']?>€/night</p>
-            <p class="nGuestnBeb"><?=$listing['SingleBeds'] +2*$listing['DoubleBeds']?> guests, <?=$listing['SingleBeds'] + 2*$listing['DoubleBeds']?> beds</p>
+            <p class="nGuestnBeb"><?=$listing['SingleBeds'] +2*$listing['DoubleBeds']?> guests, <?=$listing['SingleBeds'] + $listing['DoubleBeds']?> beds</p>
             <p class="houseFilters">Wifi, Kitchen, Heating</p>    
         </section>
     </section>

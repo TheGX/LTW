@@ -1,7 +1,9 @@
 <?php 
     include_once('../templates/tpl_common.php');
+    include_once('../includes/sessions.php');
+    include_once('../database/connection.php');
     include_once('../database/users.php');
-    // include_once('../includes/sessions.php');
+    include_once('../database/houses.php');
 
     draw_header('hostprofile');
     $User = getInfoFromUsername($_SESSION['username']);
@@ -36,20 +38,14 @@
             <header>
                 <h3>Host's listings</h3>
             </header>
-            <?php foreach($UserHouses as $listings) 
-                    foreach($listings as $listing)?>
+            <?php foreach($UserHouses as $listing){?>
             <nav>
                 <a href="listing.html" class="listinglink">
                     <img src="pictures/Housepic1.png" alt="House picture">
                     <h4 class="listingTitle"> <?=$listing['HouseType']?> </h4>
                     <p> <?=$listing['Title']?></p>
                 </a>
-                <!-- <a href="listing.html" class="listinglink">
-                    <img src="pictures/Housepic2.png" alt="House picture">
-                    <h4 class="listingTitle">ENTIRE HOME/APT</h4>  
-                    <p>4 BEDS Spacious Countryside Chalet</p>
-                </a> -->
-            </nav>
+            </nav> <?php }?>
         </section>
         <section id="reviews">
             <header>
