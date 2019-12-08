@@ -1,14 +1,26 @@
 <?php
-    include_once('connection.php');
-    
-    // Adds user to the Database (WORKING)
+    // Adds user to the Database (WORKING, NOW WITH HASHED PASSWORDS)
     function createUser($username, $password, $name, $email) {
         global $conn;
 
+        $options = ['cost' => 12];
+        $hash = password_hash($password, PASSWORD_DEFAULT, $options);
+
         $stmt = $conn->prepare('INSERT INTO Users VALUES(NULL, ?, ?, ?, ?, NULL, NULL, NULL, NULL, NULL, NULL)');
-        $stmt->execute([$username, $password, $name, $email]);
+        $stmt->execute([$username, $hash, $name, $email]);
 
         return $stmt->fetch();  
+    }
+
+    //Returns true if theres a $username in the database with the $password, otherwise return false
+    function verifyUser($username, $password) {
+        global $conn;  
+
+        $stmt = $conn->prepare('SELECT * FROM Users WHERE Username = ?');
+        $stmt->execute(array($username));
+        $user = $stmt->fetch();
+
+        return ($user !== false && password_verify($password, $user['Password']));
     }
 
     // Queries users from the names and usernames in the database (WORKING)
@@ -20,7 +32,6 @@
 
         return $stmt->fetchAll();
     }
-
     // Queries user info of an ID in the Database (WORKING)
     function getInfoFromID($ID) {
         global $conn;

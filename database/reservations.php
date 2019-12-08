@@ -22,8 +22,9 @@
         global $conn;
 
         //CODE HERE
-        
-        $stmt = $conn->prepare();
+        $stmt = $conn->prepare('SELECT * FROM Reservation WHERE GuestID = ?');
+        $stmt->execute(array($guest));
+
         return $stmt->fetchAll();
     }
     //retrieve reservations in $house
@@ -31,8 +32,9 @@
         global $conn;
 
         //CODE HERE
+        $stmt = $conn->prepare('SELECT * FROM Reservation WHERE HouseID = ?');
+        $stmt->execute(array($house));
 
-        $stmt = $conn->prepare();
         return $stmt->fetchAll();
     }
 
