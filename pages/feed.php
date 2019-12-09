@@ -5,10 +5,10 @@
     include_once('../database/houses.php');
 
     draw_header('feed');
-    
     $listings=getAllHouses();
-    
-?>  <section id="content">
+
+    //function draw_feed($listings){
+        ?>  <section id="content">
         <section id="filters">
             <form action="../actions/action_filter.php" method="post" id="date">
                 <select name="date">
@@ -39,7 +39,7 @@
         </section>
         <?php draw_listings($listings);?>
     </section>
-
+    
 <?php 
     draw_footer();
 ?>
