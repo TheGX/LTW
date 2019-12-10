@@ -31,11 +31,11 @@
             <input type="submit" value="Change Password">
 
             <h4>Your Name:</h4>
-            <label for="user">Username:</label>
+            <label for="newuser">Username:</label>
             <input type="text" id="newuser" name="username">
             <input type="submit" value="Change Username">
             <h4></h4>
-            <label for="user">Legal Name:</label>
+            <label for="newname">Legal Name:</label>
             <input type="text" id="newname" name="legalname">
             <input type="submit" value="Change Legal Name">
 
