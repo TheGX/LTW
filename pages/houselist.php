@@ -36,13 +36,13 @@
 
             <script>
             $(function() {
-            $('input[name="daterange"]').daterangepicker({
-                opens: 'center'
-            }, function(start, end, label) {
-                console.log("A new date selection was made: " + start.format('MM-DD-YYYY') + ' to ' + end.format('MM-DD-YYYY'));
-                var dates = {start,end};
-                return dates;
-            });
+                $('input[name="daterange"]').daterangepicker({
+                        opens: 'center'
+                }, function(start, end, label) {
+                        console.log("A new date selection was made: " + start.format('MM-DD-YYYY') + ' to ' + end.format('MM-DD-YYYY'));
+                        var dates = {start,end};
+                        return dates;
+                });
             });
             </script>
             <h3>Guests:</h3> 
