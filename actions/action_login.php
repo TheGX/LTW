@@ -1,9 +1,6 @@
 <?php
   include_once('../includes/sessions.php');
   include_once('../database/users.php');
-
-  include_once('../database/houses.php');
-
   include_once('../database/connection.php');
 
   $username = $_POST['username'];

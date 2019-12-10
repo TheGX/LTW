@@ -48,14 +48,14 @@
 	function filterHouses($start, $end, $guests, $minPrice, $maxPrice) {
 		global $conn;
 
-		$stmt = $conn->prepare('SELECT Houses.*, (Houses.SingleBeds + 2*Houses.DoubleBeds) AS Guests, Reservation.StartDate, Reservation.EndDate FROM Houses
+		$stmt = $conn->prepare('SELECT Houses.* , (Houses.SingleBeds + 2*Houses.DoubleBeds) AS Guests, Reservation.StartDate, Reservation.EndDate FROM Houses
 								LEFT JOIN Reservation ON Reservation.HouseID = Houses.ID
-								WHERE ((Reservation.StartDate > ? OR Reservation.EndDate < ?))
+								WHERE ((Reservation.StartDate > "11-6-2019" OR Reservation.EndDate < "13-7-2019"))
 								AND Guests > ? 
-								AND DailyCost > ?
-								AND DailyCost < ?');
-		$stmt->execute($start, $end, $guests, $minPrice, $maxPrice);
-		return json_encode($stmt->fetchAll());
+								AND DailyCost > "50"' );
+		$stmt->execute(array());
+		// $stmt->execute([$start, $end, $guests, $minPrice]);
+		return $stmt->fetchAll();
 	}
 
 	//DEPRECATED - getHouseInfo does it more effectively

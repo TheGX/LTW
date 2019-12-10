@@ -4,42 +4,26 @@
     include_once('../database/connection.php');
     include_once('../database/houses.php');
 
-    draw_header('feed');
-    $listings=getAllHouses();
-
-    //function draw_feed($listings){
-        ?>  <section id="content">
-        <section id="filters">
-            <form action="../actions/action_filter.php" method="post" id="date">
-                <select name="date">
-                    <option value="" disabled selected>Date</option>
-                    <option value="Example date">Example Date</option>            
-                </select>
-                <select name="nGuest">
-                    <option value="" disabled selected>Nº of Guests</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>            
-                </select>
-                <select name="listingtype">
-                    <option value="" disabled selected>Type of Place</option>
-                    <option value="Appartment">Appartment</option>
-                    <option value="EntireHome">Entire Home</option>            
-                </select>
-                <select name="price">
-                    <option value="" disabled selected>Price per night</option>
-                    <option value="-50">&lt50</option>
-                    <option value="50_100">50-100</option>
-                    <option value="100_150">100-150</option>
-                    <option value="150+">&gt150</option>
-                </select>
-                <input type="submit" value="Submit">
-            </form>
-        </section>
-        <?php draw_listings($listings);?>
-    </section>
+    $date=NULL;
+    $nGuest=NULL;
+    $listingType=NULL;
+    $price=NULL;
     
-<?php 
+    if(empty($_POST))
+        $listings=getAllHouses();
+    else{
+        if(isset($_POST['date']))
+            $date= $_POST['date'];
+        if(isset($_POST['nGuest']))
+            $nGuest= $_POST['nGuest'];
+        if(isset($_POST['listingtype']))
+            $listingType= $_POST['date'];
+        if(isset($_POST['price']))
+            $price= $_POST['price'];
+        $listings=filterHouses(11-6-2019, 13-7-2019, $nGuest, 50, "100");
+    }
+
+    draw_header('feed');
+    draw_feed($listings); 
     draw_footer();
 ?>
