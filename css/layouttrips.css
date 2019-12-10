@@ -1,0 +1,12 @@
+body section#content{
+    display: grid;
+    grid-template-columns: 0.3fr 1fr 0.3fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "clearspace trip whitespace"
+                         "clearspace trip whitespace"
+                         "clearspace trip whitespace";
+}
+
+body section #Trips {
+    grid-area: trip;
+}

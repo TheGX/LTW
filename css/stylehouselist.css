@@ -1,0 +1,71 @@
+
+body #House-section #description{
+    padding: 2em 2em;
+}
+
+body #House-section >header> h3{
+    align-content: center;
+    font-size: 2em;
+}
+body #House-section>p{
+    text-indent: 1em;
+}
+
+body #filters{
+    padding: 2em 2em;
+   
+    border: 2px solid grey;
+
+}
+
+
+body #Information #Location{
+    padding: 2em 2em;
+    border: 2px solid grey; 
+}
+body #Information #host-info{
+    padding: 2em 2em;
+    border: 2px solid grey; 
+}
+
+body #calendar  {
+    padding: 1em 1em;
+    border: 2px solid grey;
+
+}
+
+/* Reviews*/
+body #reviews{
+    padding: 2em 2em;
+   
+    border: 2px solid grey;
+    
+}
+
+
+body section#reviews article header span{
+    display: block;
+}
+body section#reviews #author{
+    margin-top: 3em;
+    font-weight: bold;
+    font-size: 1.3em ;
+}
+body section#reviews #date{
+    font-size: 0.9em ; 
+}
+body section#reviews article p{
+    text-align: left;
+}
+body section#reviews article p:last-child{
+    border-bottom: 1px solid grey;
+    
+}
+
+
+body > section #reserve {
+    grid-area: Reviews;
+    font-weight: bold;
+    font-size: 1.3em ;
+}
+
