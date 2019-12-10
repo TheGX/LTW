@@ -52,7 +52,7 @@
     <section class="houselist">
         <img src="<?=$listing['Thumbnail']?>" alt="1st House in feed">
         <section class="viewMore">
-            <a href="Houselisting.html">View more</a>
+            <a href="houselist.php">View more</a>
         </section>
         <section class="info">
             <header>
