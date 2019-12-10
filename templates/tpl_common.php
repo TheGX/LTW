@@ -24,13 +24,33 @@
                 <link href="../css/headerstyle.css" rel="stylesheet">
                 <link href="../css/layouthostprofile.css" rel="stylesheet">
                 <link href="../css/stylehostprofile.css" rel="stylesheet">
+                <?php } elseif ($file === "houselist") {?>
+                <link href="../css/layoutheader.css" rel="stylesheet">
+                <link href="../css/headerstyle.css" rel="stylesheet">
+                <link href="../css/HouseListLayout.css" rel="stylesheet">
+                <link href="../css/stylehouselist.css" rel="stylesheet">
+            <?php } elseif ($file === "newhouse") {?>
+                <link href="../css/layoutheader.css" rel="stylesheet">
+                <link href="../css/headerstyle.css" rel="stylesheet">
+                <link href="../css/layoutnewhouse.css" rel="stylesheet">
+                <link href="../css/stylenewhouse.css" rel="stylesheet">
+            <?php } elseif ($file === "trips") {?>
+                <link href="../css/layoutheader.css" rel="stylesheet">
+                <link href="../css/headerstyle.css" rel="stylesheet">
+                <link href="../css/layouttrips.css" rel="stylesheet">
+                <link href="../css/styletrips.css" rel="stylesheet">
+            <?php } elseif ($file === "edit") {?>
+                <link href="../css/layoutheader.css" rel="stylesheet">
+                <link href="../css/headerstyle.css" rel="stylesheet">
+                <link href="../css/layouteditprofile.css" rel="stylesheet">
+                <link href="../css/styleeditprofile.css" rel="stylesheet">
             <?php } ?>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <title>Final Project</title>
         </head>
         <body>
             <header>
-                <h1><a href="feed.php"><img src="pictures/houserental.png" alt="House Rental Icon"></a></h1>
+                <h1><a href="feed.php"><img src="pictures/logo.png" alt="House Rental Icon" style="width:280px;height:130px"></a></h1>
                 <form action="../actions/action_search.php" method="post">
                 <input type="text" name="search" placeholder="Search">
                 <button type="submit"><i class="fa fa-search"></i></button>
@@ -42,7 +62,7 @@
                     </nav>
                 <?php } else { ?>
                     <nav>
-                        <a href="login.html"> TRIPS</a>
+                        <a href="../pages/trips.php"> TRIPS</a>
                         <a href="register.html"> MESSAGES</a>
                         <div id="mininav">
                             <figure>

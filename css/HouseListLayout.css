@@ -1,0 +1,40 @@
+body section#content{
+    display: grid;
+    grid-template-columns: 0.4fr 2fr 1fr 0.4fr;
+    grid-template-rows:0.3fr 0.6fr 1.5fr;
+    grid-template-areas:    "w HouseSection Calendar c"
+                            "w Filter Info c"
+                            "w Reviews Info c"
+;}
+
+body > section #House-section {
+    grid-area: HouseSection;
+    text-align: center;
+}
+
+body >section #calendar {
+    grid-area: Calendar;
+    text-align: center;
+}
+
+body > section #filters {
+    grid-area: Filter;
+}
+
+body > section #Information {
+    grid-area: Info;
+}
+
+body > section #Information #Location {
+    grid-area: Loc;
+    text-align: center;
+}
+
+body > section #Information #About-Host {
+    grid-area: Host;
+    text-align: center;
+}
+
+body > section #reviews {
+    grid-area: Reviews;
+}

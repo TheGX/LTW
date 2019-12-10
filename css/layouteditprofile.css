@@ -1,0 +1,23 @@
+body section#content{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:    "user-info editprofile clearspace"
+                            "user-info editprofile clearspace"
+                            "user-info editprofile clearspace"
+;}
+
+body > section#sideInfo{
+    grid-area: user-info;
+}
+
+body > section #EditInfo {
+    height: 70%;
+    grid-area: editprofile;
+    margin-bottom: 10em;
+}
+
+
+
+
+

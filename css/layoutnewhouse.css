@@ -1,0 +1,12 @@
+body section#content{
+    display: grid;
+    grid-template-columns: 0.3fr 1fr 0.3fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "clearspace NewHouseInfo whitespace"
+                         "clearspace NewHouseInfo whitespace"
+                         "clearspace NewHouseInfo whitespace";
+}
+
+body section #House-section{
+    grid-area: NewHouseInfo;
+}

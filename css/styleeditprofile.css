@@ -1,0 +1,37 @@
+/* USER */
+body #sideInfo{
+    padding: 1em 1.5em;
+}
+body #sideInfo article {
+    width: 69%;
+    border: 2px solid grey;
+    text-indent: 1em;
+}
+
+
+body #EditInfo{
+    padding: 2em 2em;
+    border: 2px solid grey;
+}
+body #EditInfo >header> h3{
+    padding-top: 0;
+    
+    font-size: 2em;
+}
+body #EditInfo>p{
+    text-indent: 1em;
+}
+
+
+body #EditDecription{
+    padding: 2em 2em;
+    border: 2px solid grey;
+}
+body #EditDecription >header> h3{
+    padding-top: 0;
+    
+    font-size: 2em;
+}
+body #EditDecription>p{
+    text-indent: 1em;
+}

@@ -1,0 +1,30 @@
+
+body #Future{
+    margin-top: 3em;
+    padding: 2em 2em;
+    border: 2px solid grey;
+    margin-bottom: 3em;
+
+}
+
+body #Past{
+    padding: 2em 2em;
+    border: 2px solid grey;
+    
+}
+body section#Past nav a{
+    display: flexbox;
+    text-decoration: none;
+    color: black;
+}
+
+body section#Past nav a>img{
+    align-content: left;
+}
+body section#Past nav a p{
+    text-align: left;
+}
+
+body #Past > header > h3{
+    font-size: 2em;
+}
