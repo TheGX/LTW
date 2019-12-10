@@ -1,6 +1,8 @@
 <?php 
     include_once('../templates/tpl_common.php');
     include_once('../database/users.php');
+    include_once('../includes/sessions.php');
+    include_once('../database/connection.php');
 
     draw_header('edit');
 
