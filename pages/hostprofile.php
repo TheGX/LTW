@@ -7,7 +7,7 @@
 
     draw_header('hostprofile');
     $User = getInfoFromUsername($_SESSION['username']);
-    // This should return a array of arrayse
+    
     $UserHouses=getHousesFromOwner($User['ID']);
 ?>
     <section id="content">

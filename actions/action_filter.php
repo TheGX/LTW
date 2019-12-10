@@ -7,6 +7,10 @@
     // include_once('../database/houses.php');
     // include_once('../database/reservations.php');
 
+
+    // SELECT Houses.* , (Houses.SingleBeds + 2*Houses.DoubleBeds) AS Guests, Reservation.StartDate, Reservation.EndDate FROM Houses LEFT JOIN Reservation ON Reservation.HouseID = Houses.ID WHERE ((Reservation.StartDate > "11-6-2019" OR Reservation.EndDate < "13-7-2019")) AND Guests > ? AND DailyCost > "50"
+
+
     // // if()
     // // $date= $_POST['date'];
     // // $nGuest=$_POST['nGuest'];

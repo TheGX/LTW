@@ -53,7 +53,11 @@
 								WHERE ((Reservation.StartDate > "11-6-2019" OR Reservation.EndDate < "13-7-2019"))
 								AND Guests > ? 
 								AND DailyCost > "50"' );
-		$stmt->execute(array());
+		
+		// $stmt->execute();
+		// $guests=2;
+		// $stmt->execute(array($guests));
+		
 		// $stmt->execute([$start, $end, $guests, $minPrice]);
 		return $stmt->fetchAll();
 	}

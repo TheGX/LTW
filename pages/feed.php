@@ -17,10 +17,11 @@
         if(isset($_POST['nGuest']))
             $nGuest= $_POST['nGuest'];
         if(isset($_POST['listingtype']))
-            $listingType= $_POST['date'];
+            $listingType= $_POST['listingtype'];
         if(isset($_POST['price']))
             $price= $_POST['price'];
-        $listings=filterHouses(11-6-2019, 13-7-2019, $nGuest, 50, "100");
+        //var_dump($_POST);
+        $listings=filterHouses(11-6-2019, 13-7-2019, 2, 50, "100");
     }
 
     draw_header('feed');
