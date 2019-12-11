@@ -50,6 +50,27 @@
                 <input type="submit" value="Change Email">
             </form>
             
+            <h4>Your Address:</h4>
+            <form action="../actions/action_editAddress.php" method='post'>
+                <label for="newAddress">Address:</label>
+                <input type="text" id="newAddress" name="address">
+                <input type="submit" value="Change Address">
+            </form>
+
+            <h4>Your Languages:</h4>
+            <form action="../actions/action_editLanguages.php" method='post'>
+                <label for="newLang">Languages Spoken:</label>
+                <input type="text" id="newLang" name="language">
+                <input type="submit" value="Change Languages">
+            </form>
+
+            <h4>Your Profession:</h4>
+            <form action="../actions/action_editProfession.php" method='post'>
+                <label for="newProfession">Profession:</label>
+                <input type="text" id="newProfession" name="address">
+                <input type="submit" value="Change Profession">
+            </form>
+            
             <h4>Biography:</h4>
             <form action="../actions/action_editBio.php" method='post'>
                 <textarea name="text" rows="5" cols="100">...</textarea><br>

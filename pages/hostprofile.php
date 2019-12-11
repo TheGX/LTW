@@ -29,7 +29,7 @@
             <h4><?php $User['Biography']?></h4>
             <p>Lives in: <?= $User['Address']?></p>
             <p>Speaks: <?= $User['LanguagesSpoken']?></p>
-            <p>Work: <?= $User['Profession']?></p>
+            <p>Profession: <?= $User['Profession']?></p>
         </section>
         <section id="touristlink">
                 <a href="touristprofile.php">See your Tourist Profile</a>

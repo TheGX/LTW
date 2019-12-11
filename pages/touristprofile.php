@@ -26,7 +26,7 @@
             <h4><?= $User['Biography']?></h4>
             <p>Lives in: <?= $User['Address']?></p>
             <p>Speaks: <?= $User['LanguagesSpoken']?></p>
-            <p>Work: <?= $User['Profession']?></p>
+            <p>Profession: <?= $User['Profession']?></p>
         </section>
         <section id="hostlink">
                 <a href="hostprofile.php">See your Host Profile</a>
