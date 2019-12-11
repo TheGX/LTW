@@ -6,7 +6,7 @@
     <section id="content">
     <section id="filters">
           <h2>Amenities</h2>
-                <ul id="menu-filters"style="list-style-type:none;">
+                <ul id="menu-filters" style="list-style-type:none;">
                 <li>5 guests</li>
                 <li>4 bedrooms</li>
                 <li>5 bathroms</li>
