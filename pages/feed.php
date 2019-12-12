@@ -1,8 +1,14 @@
 <?php 
     include_once('../templates/tpl_common.php');
     include_once('../templates/tpl_feed.php');
+    include_once('../includes/sessions.php');
     include_once('../database/connection.php');
     include_once('../database/houses.php');
+    include_once('../database/users.php');
+
+    if(!isset($_SESSION['username'])){
+        header('Location: login.php');
+    }
 
     $date=NULL;
     $nGuest=NULL;
@@ -21,7 +27,7 @@
         if(isset($_POST['price']))
             $price= $_POST['price'];
         //var_dump($_POST);
-        $listings=filterHouses(11-6-2019, 13-7-2019, 2, 50, "100");
+        $listings=filterHouses(11-6-2019, 13-7-2019, "2", 50, "100");
     }
 
     draw_header('feed');

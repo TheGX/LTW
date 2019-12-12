@@ -68,7 +68,7 @@
                             <figure>
                                 <a href="touristprofile.php"><img src="pictures/userpic.png" alt="User Profile Pic"></a>
                                 <figcaption> 
-                                    <a href="../pages/login.php">Log Out</a>     
+                                    <a href="../actions/action_logout.php">Log Out</a>     
                                 </figcaption>
                             </figure>
                         </div>

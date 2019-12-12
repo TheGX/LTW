@@ -1,4 +1,5 @@
 <?php
+
 	//Add a house to the database (WORKING)
     function createHouse($ownerID, $title, $addressEncoded, $thumbnail, $dailyCost, $nSingleBeds, $nDoubleBeds, $houseType) {
       global $conn;
@@ -51,12 +52,12 @@
 		$stmt = $conn->prepare('SELECT Houses.* , (Houses.SingleBeds + 2*Houses.DoubleBeds) AS Guests, Reservation.StartDate, Reservation.EndDate FROM Houses
 								LEFT JOIN Reservation ON Reservation.HouseID = Houses.ID
 								WHERE ((Reservation.StartDate > "11-6-2019" OR Reservation.EndDate < "13-7-2019"))
-								AND Guests > ? 
+								AND Guests > 2
 								AND DailyCost > "50"' );
 		
-		// $stmt->execute();
 		// $guests=2;
 		// $stmt->execute(array($guests));
+		$stmt->execute();
 		
 		// $stmt->execute([$start, $end, $guests, $minPrice]);
 		return $stmt->fetchAll();
@@ -69,5 +70,15 @@
 		$stmt = $conn->prepare('SELECT DailyCost FROM Houses WHERE ID = ?');
 		$stmt->execute(array($ID));
 		return $stmt->fetch()['DailyCost'];
+	}
+
+	//Checks if 1 date is between a reservation
+	function checkIfAvailable($HouseID, $date){
+		global $conn;
+
+		$stmt = $conn->prepare('SELECT * FROM Reservation 
+								WHERE HouseID = ? AND (? NOT BETWEEN StartDate AND EndDate)');
+		$stmt->execute(array($HouseID, $date));
+		return $stmt->fetch()?true:false; //returns true if date available 
 	}
 ?>

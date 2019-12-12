@@ -10,9 +10,7 @@
         </label>
         <input type="submit" value="LOG IN">
     </form>
-    <div id="forgot">
-        <a href="login.html">Forgot Password?</a>
-    </div>
+
     <div id="newUser">
         New User?
         <form action="register.php">
@@ -26,13 +24,19 @@
     <form action="../actions/action_register.php" method="post">
         <h3>Register</h3>
         <label>
-            User Name: <input type="text" name="username">
+            User Name: <input type="text" name="username" required>
         </label>
         <label>
-            Password: <input type="password" name="password">
+            Name: <input type="text" name="name" required>
         </label>
         <label>
-            Confirm Password: <input type="password" name="confirmpassword">
+            Email: <input type="text" name="email" required>
+        </label>
+        <label>
+            Password: <input type="password" name="password" required>
+        </label>
+        <label>
+            Confirm Password: <input type="password" name="confirmpassword" required>
         </label>
         <input type="submit" value="SIGN UP">
     </form>
