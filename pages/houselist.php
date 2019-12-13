@@ -28,39 +28,44 @@
         </section>
         <section id="calendar">
             <h2>Add dates for a price</h2>
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+            <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
             <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
             <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-            <input type="text" name="daterange" value="12/01/2019 - 01/13/2020" />
-
-            <script>
-            $(function() {
-                $('input[name="daterange"]').daterangepicker({
-                        opens: 'center'
-                }, function(start, end, label) {
-                        console.log("A new date selection was made: " + start.format('MM-DD-YYYY') + ' to ' + end.format('MM-DD-YYYY'));
-                        var dates = {start,end};
-                        return dates;
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" /> -->
+            <form action="../actions/action_addReservation.php" id="N_guests" method="get">
+                <!-- <input type="text" name="daterange" value="12/01/2019 - 01/13/2020" /> -->
+                <!-- <input type="date" name="startDate" value="Start Date"> -->
+                <input placeholder="Start Date" name="startDate" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                <input placeholder="End Date" name="endDate" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                <input type="hidden" name="houseID" value="2">
+                <script>
+                $(function() {
+                    $('input[name="daterange"]').daterangepicker({
+                            opens: 'center'
+                    }, function(start, end, label) {
+                            console.log("A new date selection was made: " + start.format('MM-DD-YYYY') + ' to ' + end.format('MM-DD-YYYY'));
+                            var dates = {start,end};
+                            console.log("start-date-> " +start);
+                            return dates;
+                    });
                 });
-            });
-            </script>
-            <h3>Guests:</h3> 
-            <form action="Guest" id="N_guests">
-                <select name="n_guest" id="Nguest">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="1">5</option>
-                    <option value="2">6</option>
-                    <option value="3">7</option>
-                    <option value="4">8</option>
-                </select>
+                </script>
+                <h3>Guests:</h3> 
+                    <select name="n_guest" id="Nguest">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="1">5</option>
+                        <option value="2">6</option>
+                        <option value="3">7</option>
+                        <option value="4">8</option>
+                    </select>
+                    <input type="submit" value="RESERVE">
             </form>
-            <section id="Reserve!">
-                    <a href="profile.html">RESERVE!</a>
-            </section>
+            <!-- <section id="Reserve!">
+                    <a href="../actions/action_addReservation.php">RESERVE!</a>
+            </section> -->
         </section>
         <section id="Information">
             <section id="Location">

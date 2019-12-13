@@ -73,12 +73,12 @@
 	}
 
 	//Checks if 1 date is between a reservation
-	function checkIfAvailable($HouseID, $date){
+	function checkIfAvailable($HouseID, $dateStart, $dateEnd){
 		global $conn;
 
 		$stmt = $conn->prepare('SELECT * FROM Reservation 
-								WHERE HouseID = ? AND (? NOT BETWEEN StartDate AND EndDate)');
-		$stmt->execute(array($HouseID, $date));
-		return $stmt->fetch()?true:false; //returns true if date available 
+								WHERE HouseID = ? AND (? < EndDate AND ?>StartDate)');
+		$stmt->execute(array($HouseID, $dateStart, $dateEnd));
+		return $stmt->fetch()?false:true; //returns true if dates available cause no lines where found
 	}
 ?>

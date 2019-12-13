@@ -2,8 +2,9 @@
     //Create a new reservation for $guest in $house from $start to $end with a $daily cost (WORKING)
     function createReservation($guest, $house, $start, $end, $dailyCost) {
         global $conn;
+        
 
-        $stmt = $conn->prepare('INSERT INTO Reservation VALUES(NULL, ?, ?, ?, ?, ?, NULL, NULL, NULL, NULL, NULL, NULL)');
+        $stmt = $conn->prepare('INSERT INTO Reservation VALUES(NULL, ?, ?, CAST(? AS text), CAST(? AS text), ?, NULL, NULL, NULL, NULL, NULL, NULL)');
         $stmt->execute([$guest, $house, $start, $end, $dailyCost]);
 
         return $stmt->fetch();
