@@ -59,45 +59,4 @@
         $stmt->execute(array($email));
         return $stmt->fetch();
     }
-
-    function editProfile($user, $languages, $job, $bio, $phone) {
-        global $conn;
-        $stmt = $conn->prepare('UPDATE Users
-                                SET LanguagesSpoken = ?, Profession = ?, Biography = ?, PhoneNumber = ?
-                                WHERE ID = ?');
-
-        $stmt->execute([$languages, $job, $bio, $phone, $user]);
-        return $stmt->fetch();
-    }
-    function editAvatar($user, $file)  {
-        global $conn;
-        $stmt = $conn->prepare('UPDATE Users 
-                                SET Avatar = ?
-                                WHERE ID = ?');
-
-        $stmt->execute([$user, $file]);
-        return $stmt->fetch();
-    }
-    function editName($user, $name) {
-        global $conn;
-        $stmt = $conn->prepare('UPDATE Users 
-                                SET Name = ?
-                                WHERE ID = ?');
-
-        $stmt->execute([$user, $name]);
-        return $stmt->fetch();
-    }
-    function editPassword($user, $password) {
-        global $conn;
-
-        $options = ['cost' => 12];
-        $hash = password_hash($password, PASSWORD_DEFAULT, $options);
-
-        $stmt = $conn->prepare('UPDATE Users 
-                                SET Password = ?
-                                WHERE ID = ?');
-
-        $stmt->execute([$hash, $user]);
-        return $stmt->fetch();
-    }
 ?>

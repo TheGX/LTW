@@ -1,12 +1,13 @@
 <?php
+
 	//Add a house to the database (WORKING)
-    function createHouse($owner, $title, $addressEncoded, $thumbnail, $dailyCost) {
+    function createHouse($ownerID, $title, $addressEncoded, $thumbnail, $dailyCost, $nSingleBeds, $nDoubleBeds, $houseType) {
       global $conn;
 
       $address = json_decode($addressEncoded);
 
-      $stmt = $conn->prepare('INSERT INTO Houses VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?, NULL, NULL, NULL, NULL, NULL)');
-      $stmt->execute([$owner, $title, $address->{'Country'}, $address->{'City'}, $address->{'Street'}, $address->{'ZIPCode'}, $thumbnail, $dailyCost]);
+      $stmt = $conn->prepare('INSERT INTO Houses VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, ?, ?, NULL, ?)');
+      $stmt->execute([$ownerID, $title, $address->{'Country'}, $address->{'City'}, $address->{'Street'}, $address->{'ZIPCode'}, $thumbnail, $dailyCost, $nSingleBeds, $nDoubleBeds, $houseType]);
 
       return $stmt->fetch();
 	}
@@ -44,19 +45,22 @@
 		return $stmt->fetchAll();
 	}
 
-
 	// To be used by the TOP OF PAGE FORM (UNTESTED)
 	function filterHouses($start, $end, $guests, $minPrice, $maxPrice) {
 		global $conn;
 
-		$stmt = $conn->prepare('SELECT Houses.*, (Houses.SingleBeds + 2*Houses.DoubleBeds) AS Guests, Reservation.StartDate, Reservation.EndDate FROM Houses
+		$stmt = $conn->prepare('SELECT Houses.* , (Houses.SingleBeds + 2*Houses.DoubleBeds) AS Guests, Reservation.StartDate, Reservation.EndDate FROM Houses
 								LEFT JOIN Reservation ON Reservation.HouseID = Houses.ID
-								WHERE ((Reservation.StartDate > ? OR Reservation.EndDate < ?))
-								AND Guests > ? 
-								AND DailyCost > ?
-								AND DailyCost < ?');
-		$stmt->execute($start, $end, $guests, $minPrice, $maxPrice);
-		return json_encode($stmt->fetchAll());
+								WHERE ((Reservation.StartDate > "11-6-2019" OR Reservation.EndDate < "13-7-2019"))
+								AND Guests > 2
+								AND DailyCost > "50"' );
+		
+		// $guests=2;
+		// $stmt->execute(array($guests));
+		$stmt->execute();
+		
+		// $stmt->execute([$start, $end, $guests, $minPrice]);
+		return $stmt->fetchAll();
 	}
 
 	//DEPRECATED - getHouseInfo does it more effectively
@@ -68,46 +72,13 @@
 		return $stmt->fetch()['DailyCost'];
 	}
 
-	function addPicture($house, $file) {
+	//Given HouseID checks if house is available in the argument date
+	function checkIfAvailable($HouseID, $dateStart, $dateEnd){
 		global $conn;
 
-		$stmt = $conn->prepare('INSERT INTO Pictures VALUES(NULL, ?, ?)');
-			$stmt->execute([$house, $file]);
-		return $stmt->fetch();
-	}
-	function editRooms($house, $single, $double, $bathroom) {
-		global $conn;
-        $stmt = $conn->prepare('UPDATE Houses 
-                                SET SingleBeds = ?, DoubleBeds = ?, Bathrooms = ?
-                                WHERE ID = ?');
-
-		$stmt->execute([$single, $double, $bathroom, $house]);
-        return $stmt->fetch();
-	}
-	function editDescription($house, $description) {
-		global $conn;
-        $stmt = $conn->prepare('UPDATE Houses 
-                                SET Description = ?
-                                WHERE ID = ?');
-
-		$stmt->execute([$description, $house]);
-        return $stmt->fetch();
-	}
-	function editType($house, $type) {
-		global $conn;
-        $stmt = $conn->prepare('UPDATE Houses 
-                                SET HouseType = ?
-                                WHERE ID = ?');
-
-		$stmt->execute([$type, $house]);
-        return $stmt->fetch();
-	}
-
-	function getHousePictures($house) {
-		global $conn;
-
-		$stmt = $conn->prepare('SELECT Picture FROM Pictures WHERE HouseID = ?');
-		$stmt->execute(array($house));
-		return $stmt->fetchAll();
+		$stmt = $conn->prepare('SELECT * FROM Reservation 
+								WHERE HouseID = ? AND (? < EndDate AND ?>StartDate)');
+		$stmt->execute(array($HouseID, $dateStart, $dateEnd));
+		return $stmt->fetch()?false:true; //returns true if dates available cause no lines where found
 	}
 ?>
