@@ -17,6 +17,7 @@
         $userID = getInfoFromUsername($_SESSION['username'])['ID'];
         $rentPrice = getRentPrice($houseID);
         createReservation($userID, $houseID, $startDate, $endDate, $rentPrice);
+        ?> <h1>RESERVATION ADDED</h1><?php
     } else{
         ?> <H1>no good</H1><?php 
     }

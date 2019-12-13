@@ -45,7 +45,7 @@ body #sideInfo{
 body #sideInfo article {
     width: 69%;
     border: 2px solid grey;
-    text-indent: 1em;
+    /* text-indent: 1em; */
     word-wrap: break-word;
 }
 

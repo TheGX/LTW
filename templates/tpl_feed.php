@@ -50,7 +50,8 @@
  * Draws a single listing
  */ ?>
     <section class="houselist">
-        <img src="<?=$listing['Thumbnail']?>" alt="1st House in feed">
+        <!-- <img src="<?=$listing['Thumbnail']?>" alt="1st House in feed"> -->
+        <img src="pictures/FeedHouse1.png" alt="1st House in feed">
         <section class="viewMore">
             <a href="houselist.php">View more</a>
         </section>
