@@ -1,0 +1,19 @@
+body section#House-Edit {
+    display: grid;
+    grid-template-columns: 0.3fr 1fr 0.3fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "clearspace InfoHouse whitespace" "clearspace EditHouse whitespace" "clearspace submit whitespace";
+}
+
+body section #House-Edit #info {
+    grid-area: InfoHouse;
+    text-align: center;
+}
+
+body section #House-Edit #EditInfo {
+    grid-area: EditHouse;
+}
+
+body section #House-Edit #done {
+    grid-area: submit;
+}
