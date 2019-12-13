@@ -26,7 +26,6 @@
             $listingType= $_POST['listingtype'];
         if(isset($_POST['price']))
             $price= $_POST['price'];
-        //var_dump($_POST);
         $listings=filterHouses(11-6-2019, 13-7-2019, "2", 50, "100");
     }
 

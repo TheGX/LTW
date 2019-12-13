@@ -14,8 +14,9 @@
             <img src="pictures/bigprofilepic.png" alt="Profile Picture">
             <form action="../actions/action_uploadImage.php" method="post" enctype="multipart/form-data">
                 Upload new photo:
+                <input type="text" name="title" placeholder="Photo Title">
                 <input type="file" name="fileToUpload" id="fileToUpload">
-                <input type="submit" value="Upload Image" name="submit">
+                <input type="submit" value="Upload" name="submit">
             </form>
         </section>
         <section id="EditInfo">
