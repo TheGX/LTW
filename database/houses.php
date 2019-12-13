@@ -72,7 +72,7 @@
 		return $stmt->fetch()['DailyCost'];
 	}
 
-	//Checks if 1 date is between a reservation
+	//Given HouseID checks if house is available in the argument date
 	function checkIfAvailable($HouseID, $dateStart, $dateEnd){
 		global $conn;
 
