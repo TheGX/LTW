@@ -9,7 +9,7 @@ CREATE TABLE Users (
     Profession          TEXT,
     Biography           TEXT,
     PhoneNumber         TEXT,
-    Avatar              TEXT
+    Title               VARCHAR         REFERENCES Images
 );
 
 CREATE TABLE Houses ( 
@@ -62,16 +62,7 @@ CREATE TABLE Chat (
 );
 
 
-INSERT INTO Users VALUES (
-    NULL, --ID
-    'systemadmin', --username
-    'q46r&@NwvJ&yC2$^$A3d=9+F9MR!bL7ebt!?Jxdzm=Gy@AwGFpzH?CZ-g_6NL$X=b!*A$=+xK$=k+&Pu!+vuB6BJz5k8yCn6jd=RsCQtJuJj3g72q5uBA-KKc#ZaYgMx', --Password
-    'System Admin', --Name
-    'sadmin@rentals.com', --email
-    NULL,
-    NULL,
-    NULL,
-    NULL, --Biography
-    NULL, --Phone
-    NULL  --Picture
+CREATE TABLE Images (
+    ID INTEGER PRIMARY KEY,
+    Title VARCHAR NOT NULL
 );
