@@ -82,4 +82,41 @@
 		$stmt->execute(array($HouseID, $dateStart, $dateEnd));
 		return $stmt->fetch()?false:true; //returns true if dates available cause no lines where found
 	}
+
+	function addPicture($house, $file) {
+		global $conn;
+		$stmt = $conn->prepare('INSERT INTO Pictures VALUES(NULL, ?, ?)');
+			$stmt->execute([$house, $file]);
+		return $stmt->fetch();
+	}
+	function editRooms($house, $single, $double, $bathroom) {
+		global $conn;
+        $stmt = $conn->prepare('UPDATE Houses 
+                                SET SingleBeds = ?, DoubleBeds = ?, Bathrooms = ?
+                                WHERE ID = ?');
+		$stmt->execute([$single, $double, $bathroom, $house]);
+        return $stmt->fetch();
+	}
+	function editDescription($house, $description) {
+		global $conn;
+        $stmt = $conn->prepare('UPDATE Houses 
+                                SET Description = ?
+                                WHERE ID = ?');
+		$stmt->execute([$description, $house]);
+        return $stmt->fetch();
+	}
+	function editType($house, $type) {
+		global $conn;
+        $stmt = $conn->prepare('UPDATE Houses 
+                                SET HouseType = ?
+                                WHERE ID = ?');
+		$stmt->execute([$type, $house]);
+        return $stmt->fetch();
+	}
+	function getHousePictures($house) {
+		global $conn;
+		$stmt = $conn->prepare('SELECT Picture FROM Pictures WHERE HouseID = ?');
+		$stmt->execute(array($house));
+		return $stmt->fetchAll();
+	}
 ?>

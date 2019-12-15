@@ -39,4 +39,20 @@
         return $stmt->fetchAll();
     }
 
+    function makeHouseReview($reservationID, $houseRating, $comment, $date) {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Reservation 
+                                SET HouseRating = ?, Comment = ?, CommentDate = ?
+                                WHERE ID = ?');
+        $stmt->execute([$houseRating, $comment, $date, $reservationID]);
+        return $stmt->fetchAll();
+    }
+    function makeGuestReview($reservationID, $guestRating, $reply, $date) {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Reservation 
+                                SET GuestRating = ?, Reply = ?, ReplyDate = ?
+                                WHERE ID = ?');
+        $stmt->execute([$guestRating, $reply, $date, $reservationID]);
+        return $stmt->fetch();
+    }
 ?>
