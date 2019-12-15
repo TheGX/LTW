@@ -3,7 +3,6 @@ body #sideInfo{
     padding: 1em 1.5em;
 }
 body #sideInfo article {
-    width: 69%;
     border: 2px solid grey;
     text-indent: 1em;
 }

@@ -1,3 +1,9 @@
 <?php
-    var_dump($_POST);
+    include_once('../includes/session.php');
+
+    $oldPass = $_POST['password'];
+
+    if(verifyUser($_SESSION['username'], $oldPass)){
+        
+    }
 ?>

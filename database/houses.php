@@ -1,13 +1,14 @@
 <?php
 
 	//Add a house to the database (WORKING)
-    function createHouse($ownerID, $title, $addressEncoded, $thumbnail, $dailyCost, $nSingleBeds, $nDoubleBeds, $houseType) {
+    function createHouse($ownerID, $title, $addressEncoded, $dailyCost, $picture, $nBathrooms, $nSingleBeds, $nDoubleBeds, $houseType) {
       global $conn;
 
       $address = json_decode($addressEncoded);
 
-      $stmt = $conn->prepare('INSERT INTO Houses VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, ?, ?, NULL, ?)');
-      $stmt->execute([$ownerID, $title, $address->{'Country'}, $address->{'City'}, $address->{'Street'}, $address->{'ZIPCode'}, $thumbnail, $dailyCost, $nSingleBeds, $nDoubleBeds, $houseType]);
+      $stmt = $conn->prepare('INSERT INTO Houses VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?)');
+	  $stmt->execute([$ownerID, $title, $address->{'Country'}, $address->{'City'}, 
+	  			$address->{'Street'}, $address->{'ZIPCode'}, $dailyCost, $picture, $nBathrooms, $nSingleBeds, $nDoubleBeds, $houseType]);
 
       return $stmt->fetch();
 	}

@@ -9,7 +9,13 @@
 ?>
     <section id="content">
         <section id="sideInfo">
-            <img src="pictures/bigprofilepic.png" alt="Profile Picture">
+        <?php $photoPath = "../database/images/users/thumbs_medium/".$_SESSION['username'].".jpg" ;
+            if(!file_exists($photoPath)) {?>
+                <a href="touristprofile.php"><img src="pictures/userpic.png" width = "186" height="181" alt="User Profile Pic"></a>
+            <?php } else{ 
+                $original = "../database/images/users/originals/".$_SESSION['username'].".jpg" ; ?>
+                <a href=<?=$original?>> <img src=<?=$photoPath?> width = "186" height="181" alt="User Profile Pic"></a>
+            <?php } ?>
             <form action="../actions/action_uploadImage.php" method="post" enctype="multipart/form-data">
                 Upload new photo:
                 <input type="text" name="title" placeholder="Photo Title">

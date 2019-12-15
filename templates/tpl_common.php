@@ -66,7 +66,12 @@
                         <a href="register.html"> MESSAGES</a>
                         <div id="mininav">
                             <figure>
-                                <a href="touristprofile.php"><img src="pictures/userpic.png" alt="User Profile Pic"></a>
+                                <?php $photoPath = "../database/images/users/thumbs_small/".$_SESSION['username'].".jpg" ;
+                                    if(!file_exists($photoPath)) {?>
+                                        <a href="touristprofile.php"><img src="pictures/userpic.png" width = "71" height="71" alt="User Profile Pic"></a>
+                                    <?php } else{ ?>
+                                        <a href="touristprofile.php"><img src=<?=$photoPath?> width = "71" height="71" alt="User Profile Pic"></a>
+                                    <?php } ?>   
                                 <figcaption> 
                                     <a href="../actions/action_logout.php">Log Out</a>     
                                 </figcaption>

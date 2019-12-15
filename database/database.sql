@@ -9,7 +9,7 @@ CREATE TABLE Users (
     Profession          TEXT,
     Biography           TEXT,
     PhoneNumber         TEXT,
-    Title               VARCHAR         REFERENCES Images
+    PhotoTitle          VARCHAR                 UNIQUE
 );
 
 CREATE TABLE Houses ( 
@@ -20,17 +20,8 @@ CREATE TABLE Houses (
     City            TEXT    NOT NULL,
     Street          TEXT    NOT NULL,
     ZIPCode         TEXT    NOT NULL,
-    Thumbnail       TEXT    NOT NULL,
     DailyCost       DECIMAL NOT NULL,
     Picture1        TEXT,
-    Picture2        TEXT,
-    Picture3        TEXT,
-    Picture4        TEXT,
-    Picture5        TEXT,
-    Picture6        TEXT,
-    Picture7        TEXT,
-    Picture8        TEXT,
-    Picture9        TEXT,
     Bathrooms       INTEGER,
     SingleBeds      INTEGER,
     DoubleBeds      INTEGER,

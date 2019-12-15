@@ -10,3 +10,7 @@ body section#content{
 body section #House-section{
     grid-area: NewHouseInfo;
 }
+
+body section#House-section input {
+    display: block;
+}
