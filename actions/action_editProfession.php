@@ -4,7 +4,7 @@
     include_once('../database/users.php');
 
     var_dump($_GET);
-    $name = $_GET['name'];
+    $profession = $_GET['profession'];
     $userID = getInfoFromUsername($_SESSION['username'])['ID'];
-    editName($userID, $name);
+    editProfession($userID, $profession);
 ?>

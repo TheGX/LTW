@@ -68,12 +68,44 @@
         $stmt->execute([$languages, $job, $bio, $phone, $user]);
         return $stmt->fetch();
     }
-    function editAvatar($user, $file)  {
+    function editPhoneNumber($user, $number)  {
         global $conn;
         $stmt = $conn->prepare('UPDATE Users 
-                                SET Avatar = ?
+                                SET PhoneNumber = ?
                                 WHERE ID = ?');
-        $stmt->execute([$user, $file]);
+        $stmt->execute([$number,$user]);
+        return $stmt->fetch();
+    }
+    function editBio($user, $description)  {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Users 
+                                SET Biography = ?
+                                WHERE ID = ?');
+        $stmt->execute([$description,$user]);
+        return $stmt->fetch();
+    }
+    function editProfession($user, $profession)  {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Users 
+                                SET Profession = ?
+                                WHERE ID = ?');
+        $stmt->execute([$profession,$user]);
+        return $stmt->fetch();
+    }
+    function editLanguages($user, $languages)  {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Users 
+                                SET LanguagesSpoken = ?
+                                WHERE ID = ?');
+        $stmt->execute([$languages,$user]);
+        return $stmt->fetch();
+    }
+    function editAddress($user, $address)  {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Users 
+                                SET Address = ?
+                                WHERE ID = ?');
+        $stmt->execute([$address,$user]);
         return $stmt->fetch();
     }
     function editName($user, $name) {
@@ -81,7 +113,15 @@
         $stmt = $conn->prepare('UPDATE Users 
                                 SET Name = ?
                                 WHERE ID = ?');
-        $stmt->execute([$user, $name]);
+        $stmt->execute(array($name, $user));
+        return $stmt->fetch();
+    }
+    function editEmail($user, $email) {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Users 
+                                SET Email = ?
+                                WHERE ID = ?');
+        $stmt->execute([$email, $user]);
         return $stmt->fetch();
     }
     function editPassword($user, $password) {

@@ -37,53 +37,48 @@
             </form>
 
             <h4>Your Name:</h4>
-            <form action="../actions/action_editUsername.php" method='post'>
-                <label for="newuser">Username:</label>
-                <input type="text" id="newuser" name="username">
-                <input type="submit" value="Change Username">
-            </form>
-            <form action="../actions/action_editName.php">
+            <form action="../actions/action_editName.php" method="get">
                 <label for="newname">Name:</label>
                 <input type="text" id="newname" name="name">
                 <input type="submit" value="Change Legal Name">
             </form>
 
             <h4>Your Email:</h4>
-            <form action="../actions/action_editEmail.php" method='post'>
+            <form action="../actions/action_editEmail.php" method='get'>
                 <label for="newEmail">Email:</label>
                 <input type="text" id="newEmail" name="email">
                 <input type="submit" value="Change Email">
             </form>
             
             <h4>Your Address:</h4>
-            <form action="../actions/action_editAddress.php" method='post'>
+            <form action="../actions/action_editAddress.php" method='get'>
                 <label for="newAddress">Address:</label>
                 <input type="text" id="newAddress" name="address">
                 <input type="submit" value="Change Address">
             </form>
 
             <h4>Your Languages:</h4>
-            <form action="../actions/action_editLanguages.php" method='post'>
+            <form action="../actions/action_editLanguages.php" method='get'>
                 <label for="newLang">Languages Spoken:</label>
                 <input type="text" id="newLang" name="language">
                 <input type="submit" value="Change Languages">
             </form>
 
             <h4>Your Profession:</h4>
-            <form action="../actions/action_editProfession.php" method='post'>
+            <form action="../actions/action_editProfession.php" method='get'>
                 <label for="newProfession">Profession:</label>
-                <input type="text" id="newProfession" name="address">
+                <input type="text" id="newProfession" name="profession">
                 <input type="submit" value="Change Profession">
             </form>
             
             <h4>Biography:</h4>
-            <form action="../actions/action_editBio.php" method='post'>
+            <form action="../actions/action_editBio.php" method='get'>
                 <textarea name="text" rows="5" cols="100">...</textarea><br>
                 <input type="submit" value="Change Biography">
             </form>
 
             <h4>Phone Number</h4>
-            <form action="../actions/action_editPhoneNumber.php" method='post'>
+            <form action="../actions/action_editPhoneNumber.php" method='get'>
                 <input type="number" id="phone" name="phonenumber">
                 <input type="submit" value="Change Phone Number">
             </form>

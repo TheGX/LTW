@@ -4,7 +4,7 @@
     include_once('../database/users.php');
 
     var_dump($_GET);
-    $name = $_GET['name'];
+    $languages = $_GET['language'];
     $userID = getInfoFromUsername($_SESSION['username'])['ID'];
-    editName($userID, $name);
+    editLanguages($userID, $languages);
 ?>
