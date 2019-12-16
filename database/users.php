@@ -84,4 +84,14 @@
         $stmt->execute([$user, $name]);
         return $stmt->fetch();
     }
+    function editPassword($user, $password) {
+    global $conn;
+    $options = ['cost' => 12];
+    $hash = password_hash($password, PASSWORD_DEFAULT, $options);
+    $stmt = $conn->prepare('UPDATE Users 
+                            SET Password = ?
+                            WHERE ID = ?');
+    $stmt->execute([$hash, $user]);
+    return $stmt->fetch();
+    }
 ?>
