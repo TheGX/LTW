@@ -1,7 +1,7 @@
 body section#content{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 0.5fr 2fr;
+    grid-template-rows: fit-content(25%)  2fr;
     grid-template-areas:    "user-info Touristcontent clearspace"
                             "HostProfile Reviews clearspace";
 }

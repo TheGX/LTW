@@ -62,7 +62,9 @@
                             Upload Photos: 
                             <input type="file" name="pic1"  accept="image/*">
                             <br> Title: 
-                                <input type="text" name="title" placeholder=" ">
+                                <input type="text" name="title" required placeholder=" ">
+                            <br> Daily Cost: 
+                                <input type="number" name="dailycost" min="1" placeholder=" ">
                             <br> Description:
                                 <textarea name="description" cols="70" rows="10"></textarea>
                 </header>

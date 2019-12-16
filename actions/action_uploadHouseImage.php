@@ -5,12 +5,7 @@
     include_once('../database/images.php');
     include_once('../database/users.php');
 
-    
-    // var_dump($_FILES);
-    // die;
-    // We know this code comes from example given in the theorical class and is probably vunerable to image scrapping
-    // however, we understand this code and given time constrains no alternatives have been found
-    if((isset($_POST['title'])) && (isset($_SESSION['username']))) {
+    if(isset($_SESSION['username'])) {
         $userID = getInfoFromUsername($_SESSION['username'])['ID'];
         $id = uploadProfileImage($userID);
         // Generate filenames for original, small and medium files

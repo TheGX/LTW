@@ -17,7 +17,7 @@
                 $original = "../database/images/users/originals/".$userID.".jpg" ; ?>
                 <a href=<?=$original?>> <img src=<?=$photoPath?> width = "186" height="181" alt="User Profile Pic"></a>
             <?php } ?>
-            <form action="../actions/action_uploadImage.php" method="post" enctype="multipart/form-data">
+            <form action="../actions/action_uploadProfileImage.php" method="post" enctype="multipart/form-data">
                 Upload new photo:
                 <input type="text" name="title" placeholder="Photo Title">
                 <input type="file" name="image" id="fileToUpload">

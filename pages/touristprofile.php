@@ -15,7 +15,7 @@
                 <a href="touristprofile.php"><img src="pictures/userpic.png" width = "186" height="181" alt="User Profile Pic"></a>
             <?php } else{ 
                 $original = "../database/images/users/originals/".$userID.".jpg" ; ?>
-                <a href=<?=$original?>> <img src=<?=$photoPath?> width = "229" height="181" alt="User Profile Pic"></a>
+                <a href=<?=$original?>> <img src=<?=$photoPath?> alt="User Profile Pic"></a>
             <?php } ?>
             <article>
                 <p><?= $User['Username']?></p>

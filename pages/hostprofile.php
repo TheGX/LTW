@@ -18,7 +18,7 @@
                 <a href="touristprofile.php"><img src="pictures/userpic.png" width = "186" height="181" alt="User Profile Pic"></a>
             <?php } else{ 
                 $original = "../database/images/users/originals/".$userID.".jpg" ; ?>
-                <a href=<?=$original?>> <img src=<?=$photoPath?> width = "229" height="181" alt="User Profile Pic"></a>
+                <a href=<?=$original?>> <img src=<?=$photoPath?> alt="User Profile Pic"></a>
             <?php } ?>
             <article>
                 <p><?= $User['Username']?> </p>
@@ -52,7 +52,8 @@
             <?php foreach($UserHouses as $listing){?>
             <nav>
                 <a href="listing.html" class="listinglink">
-                    <img src="pictures/Housepic1.png" alt="House picture">
+                    <img src="../database/images/houses/thumbs_small/<?=$listing['Picture1']?>.jpg" alt="1st House in feed">
+                    <!-- <img src="pictures/Housepic1.png" alt="House picture"> -->
                     <h4 class="listingTitle"> <?=$listing['HouseType']?> </h4>
                     <p> <?=$listing['Title']?></p>
                 </a>
