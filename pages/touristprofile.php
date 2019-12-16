@@ -9,11 +9,12 @@
 ?>
     <section id="content">
         <section id="sideInfo">
-        <?php $photoPath = "../database/images/users/thumbs_medium/".$_SESSION['username'].".jpg" ;
+        <?php $userID = getInfoFromUsername($_SESSION['username'])['ID'];
+            $photoPath = "../database/images/users/thumbs_medium/".$userID.".jpg" ;
             if(!file_exists($photoPath)) {?>
                 <a href="touristprofile.php"><img src="pictures/userpic.png" width = "186" height="181" alt="User Profile Pic"></a>
             <?php } else{ 
-                $original = "../database/images/users/originals/".$_SESSION['username'].".jpg" ; ?>
+                $original = "../database/images/users/originals/".$userID.".jpg" ; ?>
                 <a href=<?=$original?>> <img src=<?=$photoPath?> width = "229" height="181" alt="User Profile Pic"></a>
             <?php } ?>
             <article>
@@ -26,7 +27,7 @@
             <header>
                 <h3><?= $User['Name']?></h3>
             </header>
-            <form action="../actions/action_editProfile.php">
+            <form action="editprofile.php">
                 <input type="submit" value="Edit Profile">
             </form>
             <h4><?= $User['Biography']?></h4>

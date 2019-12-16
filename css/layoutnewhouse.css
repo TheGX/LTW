@@ -7,10 +7,10 @@ body section#content{
                          "clearspace NewHouseInfo whitespace";
 }
 
-body section #House-section{
+body section#House-section{
     grid-area: NewHouseInfo;
 }
 
-body section#House-section input {
-    display: block;
+body section#location input {
+    margin-left: 1em;
 }

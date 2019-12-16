@@ -1,16 +1,15 @@
 <?php
 
-    function uploadProfileImage($username){
+    function uploadProfileImage($userID){
         global $conn;
         
         $stmt = $conn->prepare('UPDATE Users SET PhotoTitle = ?
-                                    WHERE Username = ?');
-        $stmt->execute(array($username, $username));
+                                    WHERE ID = ?');
+        $stmt->execute(array($userID, $userID));
         
         $stmt =$conn->prepare('INSERT INTO Images (ID, Title)
                                 VALUES (NULL, ?)');
-        $stmt->execute(array($username));
-
+        $stmt->execute(array($userID));
         return $conn->lastInsertId();
     }
 ?>

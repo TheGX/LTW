@@ -68,6 +68,14 @@
         $stmt->execute([$languages, $job, $bio, $phone, $user]);
         return $stmt->fetch();
     }
+    function editUsername($user, $userName)  {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Users 
+                                SET Username = ?
+                                WHERE ID = ?');
+        $stmt->execute([$userName,$user]);
+        return $stmt->fetch();
+    }
     function editPhoneNumber($user, $number)  {
         global $conn;
         $stmt = $conn->prepare('UPDATE Users 

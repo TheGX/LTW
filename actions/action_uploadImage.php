@@ -3,18 +3,20 @@
     include_once('../includes/sessions.php');
     include_once('../database/connection.php');
     include_once('../database/images.php');
+    include_once('../database/users.php');
+
     
     // var_dump($_FILES);
     // die;
     // We know this code comes from example given in the theorical class and is probably vunerable to image scrapping
     // however, we understand this code and given time constrains no alternatives have been found
     if((isset($_POST['title'])) && (isset($_SESSION['username']))) {
-        $id = uploadProfileImage($_SESSION['username']);
-        $username = $_SESSION['username'];
+        $userID = getInfoFromUsername($_SESSION['username'])['ID'];
+        $id = uploadProfileImage($userID);
         // Generate filenames for original, small and medium files
-        $originalFileName = "../database/images/users/originals/$username.jpg";
-        $smallFileName    = "../database/images/users/thumbs_small/$username.jpg";
-        $mediumFileName   = "../database/images/users/thumbs_medium/$username.jpg";
+        $originalFileName = "../database/images/users/originals/$userID.jpg";
+        $smallFileName    = "../database/images/users/thumbs_small/$userID.jpg";
+        $mediumFileName   = "../database/images/users/thumbs_medium/$userID.jpg";
     
         // Move the uploaded file to its final destination
         move_uploaded_file($_FILES['image']['tmp_name'], $originalFileName);
@@ -45,8 +47,8 @@
         imagejpeg($medium, $mediumFileName);
     }
 
-?> <img src="../database/images/users/thumbs_small/<?=$username?>.jpg" width="71" height="71" alt="soz man">
-    <img src="../database/images/users/thumbs_medium/<?=$username?>.jpg" width="186" height="181" alt="soz man">
+?> <img src="../database/images/users/thumbs_small/<?=$userID?>.jpg" width="71" height="71" alt="Small profile photo">
+    <img src="../database/images/users/thumbs_medium/<?=$userID?>.jpg" width="186" height="181" alt="Medium profile photo">
 <?php
 
 ?>

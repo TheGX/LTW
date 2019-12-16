@@ -9,11 +9,12 @@
 ?>
     <section id="content">
         <section id="sideInfo">
-        <?php $photoPath = "../database/images/users/thumbs_medium/".$_SESSION['username'].".jpg" ;
+        <?php $userID = getInfoFromUsername($_SESSION['username'])['ID'];
+            $photoPath = "../database/images/users/thumbs_medium/".$userID.".jpg" ;
             if(!file_exists($photoPath)) {?>
                 <a href="touristprofile.php"><img src="pictures/userpic.png" width = "186" height="181" alt="User Profile Pic"></a>
             <?php } else{ 
-                $original = "../database/images/users/originals/".$_SESSION['username'].".jpg" ; ?>
+                $original = "../database/images/users/originals/".$userID.".jpg" ; ?>
                 <a href=<?=$original?>> <img src=<?=$photoPath?> width = "186" height="181" alt="User Profile Pic"></a>
             <?php } ?>
             <form action="../actions/action_uploadImage.php" method="post" enctype="multipart/form-data">
@@ -37,6 +38,11 @@
             </form>
 
             <h4>Your Name:</h4>
+            <form action="../actions/action_editUsername.php" method="get">
+                <label for="newUsername">Username:</label>
+                <input type="text" id="newname" name="username">
+                <input type="submit" value="Change Username">
+            </form>
             <form action="../actions/action_editName.php" method="get">
                 <label for="newname">Name:</label>
                 <input type="text" id="newname" name="name">

@@ -66,7 +66,8 @@
                         <a href="register.html"> MESSAGES</a>
                         <div id="mininav">
                             <figure>
-                                <?php $photoPath = "../database/images/users/thumbs_small/".$_SESSION['username'].".jpg" ;
+                                <?php $userID = getInfoFromUsername($_SESSION['username'])['ID'];
+                                    $photoPath = "../database/images/users/thumbs_small/".$userID.".jpg" ;
                                     if(!file_exists($photoPath)) {?>
                                         <a href="touristprofile.php"><img src="pictures/userpic.png" width = "71" height="71" alt="User Profile Pic"></a>
                                     <?php } else{ ?>

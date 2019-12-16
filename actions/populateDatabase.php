@@ -4,11 +4,11 @@ include_once('../database/users.php');
 include_once('../database/houses.php');
 include_once('../database/reservations.php');
 
-    if(checkIfAvailable(2, "2019-05-10", "2019-05-15")) {
-        createReservation(1, 2, "2019-05-10", "2019-05-15", 150);
-        ?> <h1>RESERVATION MADE</h1><?php
-    }else {?> <h1>NOT AVAILABLE</h1> <?php
-    }
+    // if(checkIfAvailable(2, "2019-05-10", "2019-05-15")) {
+    //     createReservation(1, 2, "2019-05-10", "2019-05-15", 150);
+    //     ?> <h1>RESERVATION MADE</h1><?php
+    // }else {?> <h1>NOT AVAILABLE</h1> <?php
+    // }
 
     // $reservations=getAllReservations();
     // var_dump($reservations);

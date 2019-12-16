@@ -13,6 +13,7 @@
     $_SESSION['username']=$username;
   } catch (PDOException $e) {
     ?> <h1>ERROR ON CREATE USER</h1> <?php
-    // header('Location: ../pages/feed.php');
+    die;
   }
+  header('Location: ../pages/feed.php');
 ?>
