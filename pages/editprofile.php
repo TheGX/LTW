@@ -73,7 +73,7 @@
             
             <h4>Biography:</h4>
             <form action="../actions/action_editBio.php" method='get'>
-                <textarea name="text" rows="5" cols="100">...</textarea><br>
+                <textarea name="text" rows="5" cols="100">...</textarea>
                 <input type="submit" value="Change Biography">
             </form>
 

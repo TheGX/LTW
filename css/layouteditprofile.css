@@ -12,7 +12,6 @@ body > section#sideInfo{
 }
 
 body > section #EditInfo {
-    height: 70%;
     grid-area: editprofile;
     margin-bottom: 10em;
 }
