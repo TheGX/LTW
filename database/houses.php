@@ -30,6 +30,14 @@
 		$stmt->execute(array($owner));
 		return $stmt->fetchAll();
 	}
+	//Get houses info from house id
+	function getHouseInfo($HouseID) {
+		global $conn;
+
+		$stmt = $conn->prepare('SELECT * FROM Houses WHERE ID = ?');
+		$stmt->execute(array($HouseID));
+		return $stmt->fetchAll();
+	}
 
   	//Get houses from the description, title or address. To be used on SEARCH BAR (WORKING)
 	function searchHouse($query) { 

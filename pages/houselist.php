@@ -3,6 +3,15 @@
     include_once('../includes/sessions.php');
     include_once('../database/connection.php');
     include_once('../database/users.php');
+    include_once('../database/houses.php');
+
+
+    $HouseID = $_GET['houseID'];
+
+    $houseInfoArray = getHouseInfo($HouseID);
+    if(empty($houseInfoArray)) die;
+    $houseInfo = $houseInfoArray['0'];
+    $ownerInfo = getInfoFromID($houseInfo['OwnerID']);
 
     draw_header('houselist');
 ?>
@@ -10,22 +19,23 @@
     <section id="filters">
           <h2>Amenities</h2>
                 <ul id="menu-filters" style="list-style-type:none;">
-                <li>5 guests</li>
-                <li>4 bedrooms</li>
-                <li>5 bathroms</li>
-                <li>Kitchen</li>
+                <li><?=$houseInfo['SingleBeds'] +2*$houseInfo['DoubleBeds']?> guests</li>
+                <li><?=$houseInfo['Bathrooms'] ?> bathroms</li>
+                <!-- <li>Kitchen</li>
                 <li>Wi-fi</li>
                 <li>Heating</li>
-                <li>Free Parking</li>
+                <li>Free Parking</li> -->
             </ul>
         </section>
         <section id="House-section">
-            <img src="pictures/FeedHouse1.png" alt="a nice house">
+            <a href="../database/images/houses/originals/<?=$houseInfo['Picture1']?>.jpg">
+                <img src="../database/images/houses/thumbs_medium/<?=$houseInfo['Picture1']?>.jpg" alt="House picture">
+            </a>
             <section id="info">
                 <header>
-                    <h2>Modern Downtown Barcelona House</h2>
-                    <p id="description">ENTIRE HOUSE <br> <br> Bright and comfortable house located in downtown Barcelona, 5 minutes from the Sagrada Familia, 2 minutes from the Torre Agbar and 1 minute from the Glorias metro station.
-<br>Perfect location, peaceful and a cozy stay so you can enjoy Barcelona! </p>
+                    <h2><?=$houseInfo['Title'] ?></h2>
+                    <p id="description"><?=$houseInfo['HouseType'] ?> <br> 
+                        <br> <?=$houseInfo['Description'] ?> </p>
                 </header>
             </section>
         </section>
@@ -40,7 +50,7 @@
                 <!-- <input type="date" name="startDate" value="Start Date"> -->
                 <input placeholder="Start Date" name="startDate" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
                 <input placeholder="End Date" name="endDate" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
-                <input type="hidden" name="houseID" value="2">
+                <input type="hidden" name="houseID" value="<?= $houseInfo['ID']?>">
                 <script>
                 $(function() {
                     $('input[name="daterange"]').daterangepicker({
@@ -53,6 +63,7 @@
                     });
                 });
                 </script>
+
                 <h3>Guests:</h3> 
                     <select name="n_guest" id="Nguest">
                         <option value="1">1</option>
@@ -60,12 +71,15 @@
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="1">5</option>
-                        <option value="2">6</option>
-                        <option value="3">7</option>
-                        <option value="4">8</option>
                     </select>
                     <input type="submit" value="RESERVE">
             </form>
+            <?php if (isset($_SESSION['message'])) { ?>
+                <div class="message">
+                    <?=$_SESSION['message']?>
+                </div>
+            <?php unset($_SESSION['message']); } ?>
+                <p>Daily Cost: <?=$houseInfo['DailyCost']?></p>
             <!-- <section id="Reserve!">
                     <a href="../actions/action_addReservation.php">RESERVE!</a>
             </section> -->
@@ -74,14 +88,17 @@
             <section id="Location">
                 <h2>Location</h2>
                 <img src="pictures/gps.png" alt="GPS litle pic">
+                <p><?=$houseInfo['Country']?>, <?=$houseInfo['City']?></p>
+                <p>Address: <?=$houseInfo['Street']?></p>
             </section>
             <section id="About-Host">
                 <section id="host-info">
                 <h2>About Host</h2>
-                <h3>José</h3>
-                    <p id="host-location">Barcelona, Spain</p>
-                    <p id="host-language">Languages: English, Spanish</p>
-                    <a href="message.html">Contact Host!</a>
+                <h3><?= $ownerInfo['Name']?></h3>
+                    <p id="host-location"><?= $ownerInfo['Address']?></p>
+                    <p id="host-language">Languages: <?= $ownerInfo['LanguagesSpoken']?></p>
+                    <p id="host-language">Contact Host: <?= $ownerInfo['Email']?></p>
+                    <!-- <a href="message.html">Contact Host!</a> -->
                 </section>
             </section>
         </section>

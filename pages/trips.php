@@ -2,6 +2,7 @@
     include_once('../templates/tpl_common.php');
     include_once('../includes/sessions.php');
     include_once('../database/connection.php');
+    include_once('../database/users.php');
 
     draw_header('trips');
 ?>

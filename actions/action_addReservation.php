@@ -17,11 +17,10 @@
         $userID = getInfoFromUsername($_SESSION['username'])['ID'];
         $rentPrice = getRentPrice($houseID);
         createReservation($userID, $houseID, $startDate, $endDate, $rentPrice);
-        ?> <h1>RESERVATION ADDED</h1><?php
+
+        $_SESSION['message'] = 'House booked!';
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     } else{
         ?> <H1>no good</H1><?php 
     }
-        
-
-    // var_dump($_GET);
 ?>
