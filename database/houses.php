@@ -91,6 +91,20 @@
 		return $stmt->fetch()?false:true; //returns true if dates available cause no lines where found
 	}
 
+	function editHouse($houseID, $title, $addressEncoded, $dailyCost, $picture, $nBathrooms, $nSingleBeds, $nDoubleBeds, $description, $houseType) {
+		global $conn;
+		$stmt = $conn->prepare('UPDATE Houses
+								SET Title = ?, Country = ?, City = ?, 
+									Street = ?, ZIPCode = ?, DailyCost = ?, 
+									Picture1 = ?, Bathrooms = ?, 
+									SingleBeds = ?, DoubleBeds = ?, 
+									Description = ?, HouseType = ? 
+								WHERE ID = ?');
+      	$address = json_decode($addressEncoded);
+		$stmt->execute(array($title, $address->{'Country'}, $address->{'City'}, 
+			$address->{'Street'}, $address->{'ZIPCode'}, $dailyCost, $picture, $nBathrooms, $nSingleBeds, $nDoubleBeds, $description, $houseType, $houseID));
+		return $stmt->fetch();
+	}
 	function editRooms($house, $single, $double, $bathroom) {
 		global $conn;
         $stmt = $conn->prepare('UPDATE Houses 
