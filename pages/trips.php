@@ -4,6 +4,10 @@
     include_once('../database/connection.php');
     include_once('../database/users.php');
 
+    if(!isset($_SESSION['username'])){
+        header('Location: login.php');
+    }
+
     draw_header('trips');
 ?>
 

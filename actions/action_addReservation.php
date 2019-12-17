@@ -21,6 +21,8 @@
         $_SESSION['message'] = 'House booked!';
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     } else{
+        $_SESSION['message'] = 'House not available during this dates!';
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
         ?> <H1>no good</H1><?php 
     }
 ?>

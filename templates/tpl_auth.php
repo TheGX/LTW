@@ -10,6 +10,11 @@
         </label>
         <input type="submit" value="LOG IN">
     </form>
+    <?php if (isset($_SESSION['error_message'])) { ?>
+        <div class="message">
+            <?=$_SESSION['error_message']?>
+        </div>
+    <?php unset($_SESSION['error_message']); } ?>
 
     <div id="newUser">
         New User?

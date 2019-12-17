@@ -5,14 +5,21 @@
     include_once('../database/users.php');
     include_once('../database/houses.php');
 
+    if(!isset($_SESSION['username'])){
+        header('Location: login.php');
+    }
 
     $HouseID = $_GET['houseID'];
 
     $houseInfoArray = getHouseInfo($HouseID);
-    if(empty($houseInfoArray)) die;
-    $houseInfo = $houseInfoArray['0'];
+    $houseInfo = $houseInfoArray;
     $ownerInfo = getInfoFromID($houseInfo['OwnerID']);
+    $userID = getInfoFromUsername($_SESSION['username'])['ID'];
 
+    if($ownerInfo['ID'] === $userID){
+        $ownerView = True;
+    } else 
+        $ownerView = False;
     draw_header('houselist');
 ?>
     <section id="content">
@@ -80,9 +87,14 @@
                 </div>
             <?php unset($_SESSION['message']); } ?>
                 <p>Daily Cost: <?=$houseInfo['DailyCost']?></p>
-            <!-- <section id="Reserve!">
-                    <a href="../actions/action_addReservation.php">RESERVE!</a>
-            </section> -->
+            <?php if($ownerView === true) { ?>
+                <div class="edit">
+                    <form action="editHome.php" method="get">
+                        <input type="hidden" name="houseID" value="<?=$houseInfo['ID'] ?>">
+                        <button type="submit">Edit your Home</button>
+                    </form>
+                </div>
+            <?php }?>
         </section>
         <section id="Information">
             <section id="Location">
@@ -90,6 +102,7 @@
                 <img src="pictures/gps.png" alt="GPS litle pic">
                 <p><?=$houseInfo['Country']?>, <?=$houseInfo['City']?></p>
                 <p>Address: <?=$houseInfo['Street']?></p>
+                <p>Post Code: <?=$houseInfo['ZIPCode']?></p>
             </section>
             <section id="About-Host">
                 <section id="host-info">

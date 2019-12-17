@@ -5,6 +5,10 @@
     include_once('../database/users.php');
     include_once('../database/houses.php');
 
+    if(!isset($_SESSION['username'])){
+        header('Location: login.php');
+    }
+
     draw_header('hostprofile');
     $User = getInfoFromUsername($_SESSION['username']);
     
@@ -51,7 +55,7 @@
             </header>
             <?php foreach($UserHouses as $listing){?>
             <nav>
-                <a href="listing.html" class="listinglink">
+                <a href="houselist.php?houseID=<?=$listing['ID']?>" class="listinglink">
                     <img src="../database/images/houses/thumbs_small/<?=$listing['Picture1']?>.jpg" alt="1st House in feed">
                     <!-- <img src="pictures/Housepic1.png" alt="House picture"> -->
                     <h4 class="listingTitle"> <?=$listing['HouseType']?> </h4>

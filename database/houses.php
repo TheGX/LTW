@@ -36,7 +36,7 @@
 
 		$stmt = $conn->prepare('SELECT * FROM Houses WHERE ID = ?');
 		$stmt->execute(array($HouseID));
-		return $stmt->fetchAll();
+		return $stmt->fetch();
 	}
 
   	//Get houses from the description, title or address. To be used on SEARCH BAR (WORKING)

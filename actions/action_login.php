@@ -10,6 +10,7 @@
     $_SESSION['username'] = $username;
     header('Location: ../pages/feed.php');
   } else {
-    header('Location: ../pages/login.php');
+      $_SESSION['error_message'] = 'Incorrect Login!';
+      header('Location: ' . $_SERVER['HTTP_REFERER']);
   }
 ?>
