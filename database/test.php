@@ -18,43 +18,44 @@
         <?php
             //createUser($username, $password, $name, $email);
             $houseID = 2;
-            //createReservation(getInfoFromUsername("malobo")['ID'], $houseID, "12-6-2019", "12-7-2019", getRentPrice($houseID))
+            //createReservation(getInfoFromUsername("ngomes")['ID'], 3, "12-6-2019", "12-7-2019", getRentPrice($houseID))
         ?>
     </h1>
 
 
 <?php
-    // $address['Country'] = "London";
-    // $address['City'] = "Porto";
-    // $address['Street'] = "Cedofeita";
-    // $address['ZIPCode'] = "42069";
+    $address['Country'] = "London";
+    $address['City'] = "Porto";
+    $address['Street'] = "Cedofeita";
+    $address['ZIPCode'] = "42069";
 
-    //createHouse(getInfoFromUsername("marquerere")['ID'], "big house", json_encode($address), "housebig.jpg", 420);
-    foreach(getAllHouses() as $house) {
+    //createHouse(getInfoFromUsername("ngomes")['ID'], "small house", json_encode($address), 420, 2, 4, 4, "No Wifi, yes fireplace", "flat");
+            
+    foreach(filterHouses("12-6-2017", "12-6-2018", 2, 2) as $house) {
 ?>
-        <h1>All houses: <?php echo($house['DailyCost'])?></h1>
+        <h1>Other houses: <?php echo($house['Title'])?></h1>
 <?php 
     }
 
     foreach(getAllReservations() as $reservation) {
 ?>
-        <h1>Price Paid: <?php echo($reservation['PricePaid'])?></h1>
+        <h1>Price Paid: <?php //echo(getHouseInfo($reservation["HouseID"])["Title"])?></h1>
 <?php 
     }
 
     foreach(getHousesFromOwner(getInfoFromUsername("nunogomes")['ID']) as $house) {
 ?>
-        <h1>House: <?php echo($house['Title'])?></h1>
+        <h1>House: <?php //echo($house['Title'])?></h1>
 <?php
         foreach(getReservationsInHouse($house['ID']) as $reservation) {
 ?>
-            <h1>Reservation by <?php echo(getInfoFromID($reservation['GuestID'])['Username'])?></h1>
+            <h1>Reservation by <?php //echo(getInfoFromID($reservation['GuestID'])['Username'])?></h1>
 <?php
         }
     }
     foreach(getReservationsFromUser(getInfoFromUsername("malobo")['ID']) as $reservation) {
 ?>
-        <h1>Reservations from user: <?php echo($reservation['GuestID'])?></h1>
+        <h1>Reservations from user: <?php //echo($reservation['GuestID'])?></h1>
 <?php
     }
 ?>
