@@ -18,22 +18,38 @@
 
         return $stmt->fetchAll();
     }
-    //retrieve reservations from $guest
-    function getReservationsFromUser($guest) {
+    //retrieve future reservations from $guest
+    function getFutureReservationsFromUser($guest) {
         global $conn;
 
-        //CODE HERE
-        $stmt = $conn->prepare('SELECT * FROM Reservation WHERE GuestID = ?');
+        $stmt = $conn->prepare('SELECT * FROM Reservation WHERE GuestID = ? AND StartDate > date() ORDER BY StartDate ASC');
         $stmt->execute(array($guest));
 
         return $stmt->fetchAll();
     }
-    //retrieve reservations in $house
-    function getReservationsInHouse($house) {
+    //retrieve past reservations from $guest
+    function getPastReservationsFromUser($guest) {
         global $conn;
 
-        //CODE HERE
-        $stmt = $conn->prepare('SELECT * FROM Reservation WHERE HouseID = ? ORDER BY StartDate ASC');
+        $stmt = $conn->prepare('SELECT * FROM Reservation WHERE GuestID = ? AND StartDate < date() ORDER BY StartDate DESC');
+        $stmt->execute(array($guest));
+
+        return $stmt->fetchAll();
+    }
+    //retrieve future reservations in $house
+    function getFutureReservationsInHouse($house) {
+        global $conn;
+
+        $stmt = $conn->prepare('SELECT * FROM Reservation WHERE HouseID = ? AND StartDate > date() ORDER BY StartDate ASC');
+        $stmt->execute(array($house));
+
+        return $stmt->fetchAll();
+    }
+    //retrieve past reservations in $house
+    function getPastReservationsInHouse($house) {
+        global $conn;
+
+        $stmt = $conn->prepare('SELECT * FROM Reservation WHERE HouseID = ? AND StartDate < date() ORDER BY StartDate DESC');
         $stmt->execute(array($house));
 
         return $stmt->fetchAll();

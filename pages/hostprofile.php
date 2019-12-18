@@ -63,7 +63,7 @@
                 </a>
                 <div class="reservations">
                     <h4>Upcoming Stays</h4>
-                    <?php $reservations = getReservationsInHouse($listing['ID']); 
+                    <?php $reservations = getFutureReservationsInHouse($listing['ID']); 
                     foreach($reservations as $reservation) {
                         $guest=getInfoFromID($reservation['GuestID']);?>
                         <p>Booking by <?=$guest['Name']?> <br> 

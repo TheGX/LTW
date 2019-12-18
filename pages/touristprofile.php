@@ -32,9 +32,11 @@
             <header>
                 <h3><?= $User['Name']?></h3>
             </header>
-            <form action="editprofile.php">
+            <?php if(!isset($_GET['ownerUsername'])) { ?>
+                <form action="editprofile.php">
                 <input type="submit" value="Edit Profile">
             </form>
+            <?php } ?>
             <h4><?= $User['Biography']?></h4>
             <p>Lives in: <?= $User['Address']?></p>
             <p>Speaks: <?= $User['LanguagesSpoken']?></p>

@@ -7,16 +7,14 @@ body #Future{
 
 }
 
-body #Past{
-    padding: 2em 2em;
-    border: 2px solid grey;
-    
-}
-body section#Past nav a{
-    display: flexbox;
+body section#Trips a{
     text-decoration: none;
     color: black;
 }
+body #Past{
+    padding: 2em 2em;
+    border: 2px solid grey;
+}    
 
 body section#Past nav a>img{
     align-content: left;

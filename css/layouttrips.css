@@ -10,3 +10,12 @@ body section#content{
 body section #Trips {
     grid-area: trip;
 }
+
+body section#Future nav {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+body section#Past nav {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
