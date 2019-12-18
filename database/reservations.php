@@ -33,7 +33,7 @@
         global $conn;
 
         //CODE HERE
-        $stmt = $conn->prepare('SELECT * FROM Reservation WHERE HouseID = ?');
+        $stmt = $conn->prepare('SELECT * FROM Reservation WHERE HouseID = ? ORDER BY StartDate ASC');
         $stmt->execute(array($house));
 
         return $stmt->fetchAll();

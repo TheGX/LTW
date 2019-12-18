@@ -18,7 +18,7 @@
 
     if($ownerInfo['ID'] === $userID){
         $ownerView = True;
-    } else 
+    } else
         $ownerView = False;
     draw_header('houselist');
 ?>
@@ -110,7 +110,7 @@
                 <h3><?= $ownerInfo['Name']?></h3>
                     <p id="host-location"><?= $ownerInfo['Address']?></p>
                     <p id="host-language">Languages: <?= $ownerInfo['LanguagesSpoken']?></p>
-                    <p id="host-language">Contact Host: <?= $ownerInfo['Email']?></p>
+                    <p id="host-contact">Contact Host: <?= $ownerInfo['Email']?></p>
                     <!-- <a href="message.html">Contact Host!</a> -->
                 </section>
             </section>

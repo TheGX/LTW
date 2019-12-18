@@ -1,7 +1,7 @@
 <?php function draw_feed($listings){ ?>  
     <section id="content">
         <section id="filters">
-            <form action="feed.php" method="post" id="date">
+            <form action="feed.php" method="get" id="date">
                 <select name="date">
                     <option value="" disabled selected>Date</option>
                     <option value="Example date">Example Date</option>            

@@ -4,6 +4,7 @@
     include_once('../database/connection.php');
     include_once('../database/users.php');
     include_once('../database/houses.php');
+    include_once('../database/reservations.php');
 
     if(!isset($_SESSION['username'])){
         header('Location: login.php');
@@ -57,11 +58,19 @@
             <nav>
                 <a href="houselist.php?houseID=<?=$listing['ID']?>" class="listinglink">
                     <img src="../database/images/houses/thumbs_small/<?=$listing['Picture1']?>.jpg" alt="1st House in feed">
-                    <!-- <img src="pictures/Housepic1.png" alt="House picture"> -->
                     <h4 class="listingTitle"> <?=$listing['HouseType']?> </h4>
                     <p> <?=$listing['Title']?></p>
                 </a>
-            </nav> <?php }?>
+                <div class="reservations">
+                    <h4>Upcoming Stays</h4>
+                    <?php $reservations = getReservationsInHouse($listing['ID']); 
+                    foreach($reservations as $reservation) {
+                        $guest=getInfoFromID($reservation['GuestID']);?>
+                        <p>Booking by <?=$guest['Name']?> <br> 
+                        From: <?=$reservation['StartDate']?> To: <?=$reservation['EndDate']?></p>
+                    <?php } ?>
+                </div>
+            </nav> <?php }?>            
         </section>
         <section id="reviews">
             <header>

@@ -15,19 +15,23 @@
     $listingType=NULL;
     $price=NULL;
     
-    if(empty($_POST))
+    if(empty($_GET))
         $listings=getAllHouses();
     else{
-        if(isset($_POST['date']))
-            $date= $_POST['date'];
-        if(isset($_POST['nGuest']))
-            $nGuest= $_POST['nGuest'];
-        if(isset($_POST['listingtype']))
-            $listingType= $_POST['listingtype'];
-        if(isset($_POST['price']))
-            $price= $_POST['price'];
-        $listings=filterHouses(11-6-2019, 13-7-2019, "2", 50, "100");
+        if(isset($_GET['date']))
+            $date= $_GET['date'];
+        if(isset($_GET['nGuest']))
+            $nGuest= $_GET['nGuest'];
+        if(isset($_GET['listingtype']))
+            $listingType= $_GET['listingtype'];
+        if(isset($_GET['price']))
+            $price= $_GET['price'];
+        if(isset($_GET['search']))
+            $listings = searchHouse($_GET['search']);
+        // $listings=filterHouses(11-6-2019, 13-7-2019, "2", 50, "100");
+        unset($_GET);
     }
+
 
     draw_header('feed');
     draw_feed($listings); 

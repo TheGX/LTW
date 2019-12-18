@@ -37,21 +37,13 @@ body #touristlink a{
 
 /*Host listings */
 body #hostlistings{
-    padding: 2em 2em;
+    padding: 0em 2em;
     border: 2px solid grey;
     display: inline;
 }
 body section#hostlistings nav a{
-    display: flexbox;
     text-decoration: none;
     color: black;
-}
-
-body section#hostlistings nav a>img{
-    align-content: left;
-}
-body section#hostlistings nav a p{
-    text-align: left;
 }
 
 body #hostlistings > header > h3{

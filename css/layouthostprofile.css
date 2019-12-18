@@ -24,6 +24,24 @@ body >section#content #touristlink {
 }
 body > section #hostlistings {
     grid-area: Hostlisting;
+    display: grid;
+    grid-template-columns: 100% ;
+    grid-template-rows: fit-content(1em) 1fr;
+}
+body > section #hostlistings header{
+    grid-column: 1;
+    grid-row: 1;
+}
+body > section #hostlistings nav{
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+body > section #hostlistings nav a{ 
+    grid-column: 1;
+}
+body > section #hostlistings nav div.reservations{ 
+    grid-column: 2;
 }
 body > section #reviews {
     grid-area: Reviews;
