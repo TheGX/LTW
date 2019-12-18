@@ -8,16 +8,18 @@
         header('Location: login.php');
     }
     draw_header('touristprofile');
-    $User = getInfoFromUsername($_SESSION['username']);
+    if(isset($_GET['ownerUsername'])) {
+        $User = getInfoFromUsername($_GET['ownerUsername']);
+    } else $User = getInfoFromUsername($_SESSION['username']);
 ?>
     <section id="content">
         <section id="sideInfo">
-        <?php $userID = getInfoFromUsername($_SESSION['username'])['ID'];
-            $photoPath = "../database/images/users/thumbs_medium/".$userID.".jpg" ;
+        <?php 
+            $photoPath = "../database/images/users/thumbs_medium/".$User['ID'].".jpg" ;
             if(!file_exists($photoPath)) {?>
                 <a href="touristprofile.php"><img src="pictures/userpic.png" width = "186" height="181" alt="User Profile Pic"></a>
             <?php } else{ 
-                $original = "../database/images/users/originals/".$userID.".jpg" ; ?>
+                $original = "../database/images/users/originals/".$User['ID'].".jpg" ; ?>
                 <a href=<?=$original?>> <img src=<?=$photoPath?> alt="User Profile Pic"></a>
             <?php } ?>
             <article>
@@ -38,9 +40,11 @@
             <p>Speaks: <?= $User['LanguagesSpoken']?></p>
             <p>Profession: <?= $User['Profession']?></p>
         </section>
+        <?php if(!isset($_GET['ownerUsername'])) { ?>
         <section id="hostlink">
                 <a href="hostprofile.php">See your Host Profile</a>
         </section>
+        <?php } else unset($_GET['ownerUsername']);?>
         <section id="reviews">
             <header>
                 <h3>Reviews</h3>

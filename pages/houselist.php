@@ -107,7 +107,10 @@
             <section id="About-Host">
                 <section id="host-info">
                 <h2>About Host</h2>
-                <h3><?= $ownerInfo['Name']?></h3>
+                <a href="touristprofile.php?ownerUsername=<?=$ownerInfo['Username']?>">
+                    <h3><?= $ownerInfo['Name']?></h3>
+                </a>
+                </form>
                     <p id="host-location"><?= $ownerInfo['Address']?></p>
                     <p id="host-language">Languages: <?= $ownerInfo['LanguagesSpoken']?></p>
                     <p id="host-contact">Contact Host: <?= $ownerInfo['Email']?></p>
