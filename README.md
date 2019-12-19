@@ -1,7 +1,7 @@
 # LTW
 
 ## Project - House Rental
-Website where owners and can list their houses and apartments for tourists to rent. 
+Website where hosts and can list their houses for tourists to rent. 
 
 - [x] There are simultaneously two types of users: tourists and hosts
 - [x] Register a new account
