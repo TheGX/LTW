@@ -2,7 +2,7 @@ LTW 19/20 Project - House Rental
 
 Group Elements
 
-Gonçalo Xavier - 
+Gonçalo Xavier - up201604506
 Nuno Gomes - 
 Marta Lobo - up201604530
 
