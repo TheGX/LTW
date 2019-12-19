@@ -10,28 +10,31 @@
         header('Location: login.php');
     }
 
-    $date=NULL;
-    $nGuest=NULL;
-    $listingType=NULL;
-    $price=NULL;
+    $startDate= 99999;
+    $endDate= 0;
+    $nGuest=0;
+    $price=999999;
     
     if(empty($_GET))
         $listings=getAllHouses();
     else{
-        if(isset($_GET['date']))
-            $date= $_GET['date'];
-        if(isset($_GET['nGuest']))
-            $nGuest= $_GET['nGuest'];
-        if(isset($_GET['listingtype']))
-            $listingType= $_GET['listingtype'];
-        if(isset($_GET['price']))
-            $price= $_GET['price'];
-        if(isset($_GET['search']))
+        if(!empty($_GET['search']))
             $listings = searchHouse($_GET['search']);
-        // $listings=filterHouses(11-6-2019, 13-7-2019, "2", 50, "100");
+        else {
+            if(!empty($_GET['startDate']))
+                $startDate= $_GET['startDate'];
+            if(!empty($_GET['endDate']))
+                $endDate= $_GET['endDate'];
+            if(!empty($_GET['nGuest']))
+                $nGuest= $_GET['nGuest'];
+            if(!empty($_GET['price']))
+                $price= intval($_GET['price']);
+            $listings=filterHouses($startDate, $endDate, $nGuest, $price);
+        }
         unset($_GET);
     }
 
+    // var_dump($listings);
 
     draw_header('feed');
     draw_feed($listings); 

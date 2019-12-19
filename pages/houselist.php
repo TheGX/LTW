@@ -23,9 +23,6 @@
     } else
         $ownerView = False;
     
-    // var_dump($userPastReservations);
-    // die;
-    
     $commentView = False;
     foreach($userPastReservations as $reservation){
         if($reservation['HouseID']===$houseInfo['ID'] && empty($reservation['Comment']) ){
@@ -75,9 +72,7 @@
                     $('input[name="daterange"]').daterangepicker({
                             opens: 'center'
                     }, function(start, end, label) {
-                            console.log("A new date selection was made: " + start.format('MM-DD-YYYY') + ' to ' + end.format('MM-DD-YYYY'));
                             var dates = {start,end};
-                            console.log("start-date-> " +start);
                             document.getElementById("startDate").value= start.format('YYYY-MM-DD');
                             document.getElementById("endDate").value= end.format('YYYY-MM-DD');
                             return dates;

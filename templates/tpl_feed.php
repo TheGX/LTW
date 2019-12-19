@@ -2,10 +2,26 @@
     <section id="content">
         <section id="filters">
             <form action="feed.php" method="get" id="date">
-                <select name="date">
-                    <option value="" disabled selected>Date</option>
-                    <option value="Example date">Example Date</option>            
-                </select>
+                <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+                <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+                <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+                <input type="text" name="daterange" value="12/01/2019 - 01/13/2020" />
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />  
+                <input name="startDate" type="hidden" id="startDate">
+                <input name="endDate" type="hidden" id="endDate">
+                <script>
+                $(function() {
+                    $('input[name="daterange"]').daterangepicker({
+                            opens: 'center'
+                    }, function(start, end, label) {
+                            console.log("A new date selection was made: " + start.format('MM-DD-YYYY') + ' to ' + end.format('MM-DD-YYYY'));
+                            var dates = {start,end};
+                            document.getElementById("startDate").value= start.format('YYYY-MM-DD');
+                            document.getElementById("endDate").value= end.format('YYYY-MM-DD');
+                            return dates;
+                    });
+                });
+                </script>
                 <select name="nGuest">
                     <option value="" disabled selected>Nº of Guests</option>
                     <option value="1">1</option>
@@ -18,13 +34,7 @@
                     <option value="Appartment">Appartment</option>
                     <option value="EntireHome">Entire Home</option>            
                 </select>
-                <select name="price">
-                    <option value="" disabled selected>Price per night</option>
-                    <option value="-50">&lt50</option>
-                    <option value="50_100">50-100</option>
-                    <option value="100_150">100-150</option>
-                    <option value="150+">&gt150</option>
-                </select>
+                <input type="number" name="price" id="">
                 <input type="submit" value="Submit">
             </form>
         </section>

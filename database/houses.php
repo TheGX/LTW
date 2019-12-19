@@ -55,20 +55,17 @@
 	}
 
 	// To be used by the TOP OF PAGE FORM (UNTESTED)
-	function filterHouses($start, $end, $guests, $minPrice, $maxPrice) {
+	function filterHouses($start, $end, $guests, $maxPrice) {
 		global $conn;
-
-		$stmt = $conn->prepare('SELECT Houses.* , (Houses.SingleBeds + 2*Houses.DoubleBeds) AS Guests, Reservation.StartDate, Reservation.EndDate FROM Houses
-								LEFT JOIN Reservation ON Reservation.HouseID = Houses.ID
-								WHERE ((Reservation.StartDate > "11-6-2019" OR Reservation.EndDate < "13-7-2019"))
-								AND Guests > 2
-								AND DailyCost > "50"' );
-		
-		// $guests=2;
-		// $stmt->execute(array($guests));
-		$stmt->execute();
-		
-		// $stmt->execute([$start, $end, $guests, $minPrice]);
+		$stmt = $conn->prepare('SELECT DISTINCT Houses.* FROM Houses
+									LEFT JOIN Reservation ON HouseID = Houses.ID
+									WHERE Houses.ID NOT IN
+										(SELECT HouseID FROM Reservation
+											WHERE (? < EndDate AND ? > StartDate))
+									AND (Houses.SingleBeds + 2*Houses.DoubleBeds) >= cast(? as int)
+									AND DailyCost < ?');
+									
+		$stmt->execute([$start, $end, $guests, $maxPrice]);
 		return $stmt->fetchAll();
 	}
 
