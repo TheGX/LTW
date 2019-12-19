@@ -9,7 +9,8 @@ CREATE TABLE Users (
     Profession          TEXT,
     Biography           TEXT,
     PhoneNumber         TEXT,
-    Avatar              TEXT
+    PhotoTitle          VARCHAR                 UNIQUE,
+    Rating              DECIMAL
 );
 
 CREATE TABLE Houses ( 
@@ -20,22 +21,15 @@ CREATE TABLE Houses (
     City            TEXT    NOT NULL,
     Street          TEXT    NOT NULL,
     ZIPCode         TEXT    NOT NULL,
-    Thumbnail       TEXT    NOT NULL,
     DailyCost       DECIMAL NOT NULL,
     Picture1        TEXT,
-    Picture2        TEXT,
-    Picture3        TEXT,
-    Picture4        TEXT,
-    Picture5        TEXT,
-    Picture6        TEXT,
-    Picture7        TEXT,
-    Picture8        TEXT,
-    Picture9        TEXT,
     Bathrooms       INTEGER,
     SingleBeds      INTEGER,
     DoubleBeds      INTEGER,
     Description     TEXT,
-    HouseType       TEXT
+    HouseType       TEXT,
+    Guests          INTEGER,
+    Rating          DECIMAL
 );
 
 CREATE TABLE Reservation (
@@ -62,16 +56,7 @@ CREATE TABLE Chat (
 );
 
 
-INSERT INTO Users VALUES (
-    NULL, --ID
-    'systemadmin', --username
-    'q46r&@NwvJ&yC2$^$A3d=9+F9MR!bL7ebt!?Jxdzm=Gy@AwGFpzH?CZ-g_6NL$X=b!*A$=+xK$=k+&Pu!+vuB6BJz5k8yCn6jd=RsCQtJuJj3g72q5uBA-KKc#ZaYgMx', --Password
-    'System Admin', --Name
-    'sadmin@rentals.com', --email
-    NULL,
-    NULL,
-    NULL,
-    NULL, --Biography
-    NULL, --Phone
-    NULL  --Picture
+CREATE TABLE Images (
+    ID INTEGER PRIMARY KEY,
+    Title VARCHAR NOT NULL
 );

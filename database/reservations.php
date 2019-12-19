@@ -33,10 +33,26 @@
         global $conn;
 
         //CODE HERE
-        $stmt = $conn->prepare('SELECT * FROM Reservation WHERE HouseID = ?');
+        $stmt = $conn->prepare('SELECT * FROM Reservation WHERE HouseID = ? ORDER BY StartDate ASC');
         $stmt->execute(array($house));
 
         return $stmt->fetchAll();
     }
 
+    function makeHouseReview($reservationID, $houseRating, $comment, $date) {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Reservation 
+                                SET HouseRating = ?, Comment = ?, CommentDate = ?
+                                WHERE ID = ?');
+        $stmt->execute([$houseRating, $comment, $date, $reservationID]);
+        return $stmt->fetchAll();
+    }
+    function makeGuestReview($reservationID, $guestRating, $reply, $date) {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Reservation 
+                                SET GuestRating = ?, Reply = ?, ReplyDate = ?
+                                WHERE ID = ?');
+        $stmt->execute([$guestRating, $reply, $date, $reservationID]);
+        return $stmt->fetch();
+    }
 ?>

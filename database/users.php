@@ -6,7 +6,7 @@
         $options = ['cost' => 12];
         $hash = password_hash($password, PASSWORD_DEFAULT, $options);
 
-        $stmt = $conn->prepare('INSERT INTO Users VALUES(NULL, ?, ?, ?, ?, NULL, NULL, NULL, NULL, NULL, NULL)');
+        $stmt = $conn->prepare('INSERT INTO Users VALUES(NULL, ?, ?, ?, ?, NULL, NULL, NULL, NULL, NULL, NULL, NULL)');
         $stmt->execute([$username, $hash, $name, $email]);
 
         return $stmt->fetch();  
@@ -59,4 +59,112 @@
         $stmt->execute(array($email));
         return $stmt->fetch();
     }
+
+    function editProfile($user, $languages, $job, $bio, $phone) {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Users
+                                SET LanguagesSpoken = ?, Profession = ?, Biography = ?, PhoneNumber = ?
+                                WHERE ID = ?');
+        $stmt->execute([$languages, $job, $bio, $phone, $user]);
+        return $stmt->fetch();
+    }
+    function editUsername($user, $userName)  {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Users 
+                                SET Username = ?
+                                WHERE ID = ?');
+        $stmt->execute([$userName,$user]);
+        return $stmt->fetch();
+    }
+    function editPhoneNumber($user, $number)  {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Users 
+                                SET PhoneNumber = ?
+                                WHERE ID = ?');
+        $stmt->execute([$number,$user]);
+        return $stmt->fetch();
+    }
+    function editBio($user, $description)  {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Users 
+                                SET Biography = ?
+                                WHERE ID = ?');
+        $stmt->execute([$description,$user]);
+        return $stmt->fetch();
+    }
+    function editProfession($user, $profession)  {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Users 
+                                SET Profession = ?
+                                WHERE ID = ?');
+        $stmt->execute([$profession,$user]);
+        return $stmt->fetch();
+    }
+    function editLanguages($user, $languages)  {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Users 
+                                SET LanguagesSpoken = ?
+                                WHERE ID = ?');
+        $stmt->execute([$languages,$user]);
+        return $stmt->fetch();
+    }
+    function editAddress($user, $address)  {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Users 
+                                SET Address = ?
+                                WHERE ID = ?');
+        $stmt->execute([$address,$user]);
+        return $stmt->fetch();
+    }
+    function editName($user, $name) {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Users 
+                                SET Name = ?
+                                WHERE ID = ?');
+        $stmt->execute(array($name, $user));
+        return $stmt->fetch();
+    }
+    function editEmail($user, $email) {
+        global $conn;
+        $stmt = $conn->prepare('UPDATE Users 
+                                SET Email = ?
+                                WHERE ID = ?');
+        $stmt->execute([$email, $user]);
+        return $stmt->fetch();
+    }
+    function editPassword($user, $password) {
+    global $conn;
+    $options = ['cost' => 12];
+    $hash = password_hash($password, PASSWORD_DEFAULT, $options);
+    $stmt = $conn->prepare('UPDATE Users 
+                            SET Password = ?
+                            WHERE ID = ?');
+    $stmt->execute([$hash, $user]);
+    return $stmt->fetch();
+    }
+    
+    function setGuestRating($user) {
+		global $conn;
+
+		$st = $conn->prepare('SELECT AVG(HouseRating) AS Average FROM Reservation WHERE GuestID = ?');
+		$st->execute([$user]);
+		$fetchAvg = $st->fetch();
+		$average = $fetchAvg['Average'];
+
+		$stmt = $conn->prepare('UPDATE Users
+									SET Rating = ?
+									WHERE ID = ?');
+
+		$stmt->execute([$average, $user]);
+        return $stmt->fetch();
+	}
+
+	function getHouseRating($user) {
+		global $conn;
+		
+		$stmt = $conn->prepare('SELECT Rating FROM Users WHERE ID = ?');
+		$stmt->execute([$user]);
+		
+		return $stmt->fetch();
+	}
 ?>

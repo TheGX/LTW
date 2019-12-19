@@ -6,9 +6,12 @@
 
       $address = json_decode($addressEncoded);
 
-      $stmt = $conn->prepare('INSERT INTO Houses VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, NULL, ?, ?, ?, ?, ?)');
+	  $guests = $nSingleBeds + 2*$nDoubleBeds;
+
+      $stmt = $conn->prepare('INSERT INTO Houses VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, NULL, ?, ?, ?, ?, ?, ?, NULL)');
 	  $stmt->execute([$ownerID, $title, $address->{'Country'}, $address->{'City'}, 
-	  			$address->{'Street'}, $address->{'ZIPCode'}, $dailyCost, $nBathrooms, $nSingleBeds, $nDoubleBeds, $description, $houseType]);
+						$address->{'Street'}, $address->{'ZIPCode'}, $dailyCost,
+						$nBathrooms, $nSingleBeds, $nDoubleBeds, $description, $houseType, $guests]);
 
       return $conn->lastInsertId();
 	}
@@ -57,18 +60,16 @@
 	// To be used by the TOP OF PAGE FORM (UNTESTED)
 	function filterHouses($start, $end, $guests, $maxPrice) {
 		global $conn;
-		$stmt = $conn->prepare('SELECT * FROM Houses
-									WHERE ID NOT IN (SELECT HouseID FROM Reservation)
-									AND (SingleBeds + 2*DoubleBeds) > ?
-									AND DailyCost < ?
-								UNION
-								SELECT Houses.* FROM Houses
-									LEFT JOIN Reservation ON Reservation.HouseID = Houses.ID
-									WHERE (? < Reservation.EndDate AND ?>Reservation.StartDate)
-									AND (Houses.SingleBeds + 2*Houses.DoubleBeds) > ?
+
+		$stmt = $conn->prepare('SELECT DISTINCT Houses.* FROM Houses
+									LEFT JOIN Reservation ON HouseID = Houses.ID
+									WHERE Houses.ID NOT IN
+										(SELECT HouseID FROM Reservation
+											WHERE (? < EndDate AND ? > StartDate))
+									AND Guests >= ?
 									AND DailyCost < ?');
-		
-		$stmt->execute([$guests, $maxPrice, $start, $end, $guests, $maxPrice]);
+									
+		$stmt->execute([$start, $end, $guests, $maxPrice]);
 		
 		return $stmt->fetchAll();
 	}
@@ -132,4 +133,29 @@
         return $stmt->fetch();
 	}
 	
+	function setHouseRating($house) {
+		global $conn;
+
+		$st = $conn->prepare('SELECT AVG(HouseRating) AS Average FROM Reservation WHERE HouseID = ?');
+		$st->execute([$house]);
+		$fetchAvg = $st->fetch();
+		$average = $fetchAvg['Average'];
+
+		$stmt = $conn->prepare('UPDATE Houses
+									SET Rating = ?
+									WHERE ID = ?');
+
+		$stmt->execute([$average, $house]);
+        return $stmt->fetch();
+	}
+
+	function getHouseRating($house) {
+		global $conn;
+		
+		$stmt = $conn->prepare('SELECT Rating FROM Houses WHERE ID = ?');
+		$stmt->execute([$house]);
+		
+		return $stmt->fetch();
+	}
+
 ?>
