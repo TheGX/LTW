@@ -96,18 +96,6 @@
             <?php } ?>
         </section>
     </section>
-    <footer>
-        <nav>
-            <ul id="nextComments">
-                <li><a href="profile.html">&lt&lt Prev</a></li>
-                <li><a href="profile.html">1</a></li>
-                <li><a href="profile.html">2</a></li>
-                <li><a href="profile.html">3</a></li>
-                <li><a href="profile.html">Next &gt&gt</a></li>
-            </ul>
-        </nav>  
-    </footer>
-
 <?php 
     draw_footer();
 ?>
