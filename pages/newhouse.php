@@ -66,7 +66,7 @@
                             <br> Daily Cost: 
                                 <input type="number" name="dailycost" min="1" placeholder=" ">
                             <br> Description:
-                                <textarea name="description" cols="70" rows="10"></textarea>
+                                <textarea name="description" cols="70" rows="10" style="display: block;"></textarea>
                 </header>
         </section>
         <section id="done">
