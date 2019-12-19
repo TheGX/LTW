@@ -34,8 +34,6 @@
         unset($_GET);
     }
 
-    // var_dump($listings);
-
     draw_header('feed');
     draw_feed($listings); 
     draw_footer();

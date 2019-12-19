@@ -29,11 +29,6 @@
                     <option value="3">3</option>
                     <option value="4">4</option>            
                 </select>
-                <select name="listingtype">
-                    <option value="" disabled selected>Type of Place</option>
-                    <option value="Appartment">Appartment</option>
-                    <option value="EntireHome">Entire Home</option>            
-                </select>
                 <input type="number" name="price" id="">
                 <input type="submit" value="Submit">
             </form>
