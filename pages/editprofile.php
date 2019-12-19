@@ -32,6 +32,11 @@
             <header>
                 <h3>Edit Profile</h3>
             </header>
+            <?php if (isset($_SESSION['error_message'])) { ?>
+                <div class="message">
+                    <?=$_SESSION['error_message']?>
+                </div>
+            <?php unset($_SESSION['error_message']); } ?>   
             <h4>Password:</h4>
             <form action="../actions/action_editPassword.php" method='post'>
                 <label for="pass">Old Password:</label>

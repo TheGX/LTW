@@ -1,5 +1,4 @@
 <?php 
-    include_once('../templates/tpl_common.php');
     include_once('../includes/sessions.php');
     include_once('../database/connection.php');
     include_once('../database/users.php');
@@ -13,6 +12,7 @@
     $HouseID = $_GET['houseID'];
 
     $houseInfo = getHouseInfo($HouseID);
+    include_once('../templates/tpl_common.php');
     $houseReservations = getPastReservationsInHouse($houseInfo['ID']);
     $ownerInfo = getInfoFromID($houseInfo['OwnerID']);
     $userID = getInfoFromUsername($_SESSION['username'])['ID'];

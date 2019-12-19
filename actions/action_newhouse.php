@@ -10,7 +10,6 @@
       || empty($_POST['n_bathrooms']) || empty($_POST['country']) 
       || empty($_POST['street']) || empty($_POST['city']) || empty($_POST['pc']) 
       || empty($_POST['title']) || empty($_POST['description']) || empty($_FILES['pic1']['name']) ){
-        ?> <h1>ERROR PLS FILL ALL THE INPUTS</h1> <?php 
     } else {
         $ownerID = getInfoFromUsername($_SESSION['username'])['ID'];
         $title = $_POST['title'];

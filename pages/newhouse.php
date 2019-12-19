@@ -12,8 +12,8 @@
             <section id="place">
                 <header>
                     <h3>What kind of place are you listing?</h3>
-                        House<input type="radio" name="place" value="Entire house" checked> 
-                        Flat<input type="radio" name="place" value="Appartment"> 
+                        House<input required type="radio" name="place" value="Entire house" checked> 
+                        Flat<input required type="radio" name="place" value="Appartment"> 
                 </header>
             </section>
             <section id="beds">
@@ -51,20 +51,20 @@
                 <header>
                     <h3>Where is your place located?</h3>
                 </header>
-                        Country:<input type="text" name="country" placeholder=" "> <br>
-                        Street Address:<input type="text" name="street" placeholder=" "> <br>
-                        City:<input type="text" name="city" placeholder=" "><br>
-                        Post Code:<input type="text" name="pc" placeholder=" ">
+                        Country:<input required type="text" name="country" placeholder=" "> <br>
+                        Street Address:<input required type="text" name="street" placeholder=" "> <br>
+                        City:<input required type="text" name="city" placeholder=" "><br>
+                        Post Code:<input required type="text" name="pc" placeholder=" ">
         </section>
         <section id="info-house">
                 <header>
                         <h3>Upload photos, write a short description and choose a title for your place!</h3>
                             Upload Photos: 
-                            <input type="file" name="pic1"  accept="image/*">
+                            <input required type="file" name="pic1"  accept="image/*">
                             <br> Title: 
-                                <input type="text" name="title" required placeholder=" ">
+                                <input required type="text" name="title" required placeholder=" ">
                             <br> Daily Cost: 
-                                <input type="number" name="dailycost" min="1" placeholder=" ">
+                                <input required type="number" name="dailycost" min="1" placeholder=" ">
                             <br> Description:
                                 <textarea name="description" cols="70" rows="10" style="display: block;"></textarea>
                 </header>

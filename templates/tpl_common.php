@@ -8,45 +8,53 @@
             <?php if($file === "login"){ ?>
                 <link href="../css/layoutlogin.css" rel="stylesheet">  
                 <link href="../css/layoutheaderlogin.css" rel="stylesheet">
-                <link href="../css/stylelogin.css" rel="stylesheet">      
+                <link href="../css/stylelogin.css" rel="stylesheet">    
+                <title>House Rental: Log in</title>
             <?php } elseif ($file === "feed") { ?>
                 <link href="../css/layoutheader.css" rel="stylesheet">
                 <link href="../css/headerstyle.css" rel="stylesheet">
                 <link href="../css/layoutfeed.css" rel="stylesheet">
                 <link href="../css/stylefeed.css" rel="stylesheet">
+                <title>Feed</title>
             <?php } elseif ($file === "touristprofile") {?>
                 <link href="../css/layoutheader.css" rel="stylesheet">
                 <link href="../css/headerstyle.css" rel="stylesheet">
                 <link href="../css/layoutprofile.css" rel="stylesheet">
                 <link href="../css/styleprofile.css" rel="stylesheet">
+                <title>Tourist Profile</title>
             <?php } elseif ($file === "hostprofile") {?>
                 <link href="../css/layoutheader.css" rel="stylesheet">
                 <link href="../css/headerstyle.css" rel="stylesheet">
                 <link href="../css/layouthostprofile.css" rel="stylesheet">
                 <link href="../css/stylehostprofile.css" rel="stylesheet">
+                <title>Host Profile</title>
                 <?php } elseif ($file === "houselist") {?>
                 <link href="../css/layoutheader.css" rel="stylesheet">
                 <link href="../css/headerstyle.css" rel="stylesheet">
                 <link href="../css/HouseListLayout.css" rel="stylesheet">
                 <link href="../css/stylehouselist.css" rel="stylesheet">
+                <?php global $houseInfo?>
+                <title><?=$houseInfo['Title'] ?></title>
             <?php } elseif ($file === "newhouse") {?>
                 <link href="../css/layoutheader.css" rel="stylesheet">
                 <link href="../css/headerstyle.css" rel="stylesheet">
                 <link href="../css/layoutnewhouse.css" rel="stylesheet">
                 <link href="../css/stylenewhouse.css" rel="stylesheet">
+                <title>Add a House</title>
             <?php } elseif ($file === "trips") {?>
                 <link href="../css/layoutheader.css" rel="stylesheet">
                 <link href="../css/headerstyle.css" rel="stylesheet">
                 <link href="../css/layouttrips.css" rel="stylesheet">
                 <link href="../css/styletrips.css" rel="stylesheet">
+                <title>Your travels</title>
             <?php } elseif ($file === "edit") {?>
                 <link href="../css/layoutheader.css" rel="stylesheet">
                 <link href="../css/headerstyle.css" rel="stylesheet">
                 <link href="../css/layouteditprofile.css" rel="stylesheet">
                 <link href="../css/styleeditprofile.css" rel="stylesheet">
+                <title>Edit Profile</title>
             <?php } ?>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <title>Final Project</title>
         </head>
         <body>
             <header>

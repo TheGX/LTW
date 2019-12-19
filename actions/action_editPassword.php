@@ -8,9 +8,9 @@
     $userID = getInfoFromUsername($_SESSION['username'])['ID'];
 
     if(verifyUser($_SESSION['username'], $oldPass)){
-        ?> <h1>Verified user</h1><?php
         editPassword($userID, $newpassword);
-    }
+    } else $_SESSION['error_message'] = 'Incorrect Password!';
+
     header('Location: ' . $_SERVER['HTTP_REFERER']);  
 
 ?>
