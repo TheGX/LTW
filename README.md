@@ -3,7 +3,7 @@
 ## Project - House Rental
 Website where owners and can list their houses and apartments for tourists to rent. 
 
-- [x] There are simultaneously two types of users: owners and tourists
+- [x] There are simultaneously two types of users: tourists and hosts
 - [x] Register a new account
 - [x] Login and logout
 - [x] Edit their profile
@@ -12,8 +12,9 @@ Website where owners and can list their houses and apartments for tourists to re
 - [x] Owners can be tourists and tourists can become hosts
 - [x] Tourists can make reviews 
 - [x] Owners can reply to reviews 
-- [x] Users are able to search for houses 
+- [x] Users are able to search for houses and filter their preference features
 - [x] Users are able to rent a place if it is available 
+- [x] Users are able to see their upcoming and past trips 
 
 
 ### Register, Renting a House, Editing Profile
