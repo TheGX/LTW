@@ -1,16 +1,28 @@
 # LTW
-Final project for the course LTW, Airbnb look alike
 
-## Mockups
+## Project - House Rental
+Website where owners and can list their houses and apartments for tourists to rent. 
 
-### Tourist Profile & Feed  
-![Feed](https://github.com/TheGX/LTW/blob/master/documentation/Profile_Feed.png) 
+- [x] There are simultaneously two types of users: owners and tourists
+- [x] Register a new account
+- [x] Login and logout
+- [x] Edit their profile
+- [x] Owners can add new houses to the database (title, description, photo, price, location..)
+- [x] Owners can manage their own houses
+- [x] Owners can be tourists and tourists can become hosts
+- [x] Tourists can make reviews 
+- [x] Owners can reply to reviews 
+- [x] Users are able to search for houses 
+- [x] Users are able to rent a place if it is available 
 
-### Host Profile & Register/Log-in
-![Host](https://github.com/TheGX/LTW/blob/master/documentation/Tourist_Sign_Register.png) 
 
-### Messages, Individual Messages & Edit Profile
-![Messages](https://github.com/TheGX/LTW/blob/master/documentation/Messages_Edit.png)
+### Register, Renting a House, Editing Profile
+![NewUser](registrenting.gif) 
 
-### Upcoming Trips
-![Upcoming Trips](https://github.com/TheGX/LTW/blob/master/documentation/LTWproject-Trips.png)
+### Host Profile, Listings, Creating an Announce
+![Host](hostprofileandlistings.gif) 
+
+### Editing a House
+![Editing](editinghome.gif)
+
+
