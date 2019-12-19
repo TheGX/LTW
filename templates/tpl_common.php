@@ -63,7 +63,7 @@
                 <?php } else { ?>
                     <nav>
                         <a href="../pages/trips.php"> TRIPS</a>
-                        <a href="register.html"> MESSAGES</a>
+                        <a href="feed.php"> MESSAGES</a>
                         <div id="mininav">
                             <figure>
                                 <?php $userID = getInfoFromUsername($_SESSION['username'])['ID'];

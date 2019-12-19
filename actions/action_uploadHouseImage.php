@@ -41,9 +41,5 @@
         imagecopyresized($medium, $original, 0, 0, 0, 0, $mediumwidth, $mediumheight, $width, $height);
         imagejpeg($medium, $mediumFileName);
     }
-
-?> <img src="../database/images/users/thumbs_small/<?=$userID?>.jpg" width="71" height="71" alt="Small profile photo">
-    <img src="../database/images/users/thumbs_medium/<?=$userID?>.jpg" width="186" height="181" alt="Medium profile photo">
-<?php
-
+    header('Location: hostprofile.php');
 ?>

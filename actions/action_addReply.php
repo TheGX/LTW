@@ -5,9 +5,7 @@
     include_once('../database/houses.php');
     include_once('../database/reservations.php');
 
-    // var_dump($_POST);
-    // die;
-
     makeGuestReview($_POST['pastReservationID'], $_POST['rating'], $_POST['text'], date('F Y'));
-
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    
 ?>
