@@ -159,7 +159,7 @@
         return $stmt->fetch();
 	}
 
-	function getHouseRating($user) {
+	function getGuestRating($user) {
 		global $conn;
 		
 		$stmt = $conn->prepare('SELECT Rating FROM Users WHERE ID = ?');
