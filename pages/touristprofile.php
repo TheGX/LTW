@@ -3,6 +3,8 @@
     include_once('../includes/sessions.php');
     include_once('../database/connection.php');
     include_once('../database/users.php');
+    include_once('../database/houses.php');
+    include_once('../database/reservations.php');
 
     if(!isset($_SESSION['username'])){
         header('Location: login.php');
@@ -11,6 +13,8 @@
     if(isset($_GET['ownerUsername'])) {
         $User = getInfoFromUsername($_GET['ownerUsername']);
     } else $User = getInfoFromUsername($_SESSION['username']);
+
+    $pastReservations = getPastReservationsFromUser($User['ID']);
 ?>
     <section id="content">
         <section id="sideInfo">
@@ -51,45 +55,24 @@
             <header>
                 <h3>Reviews</h3>
             </header>
-            <article>
-                <header>
-                    <span class="author">Tom, Paris, France</span>
-                    <span class="date">September 2019</span>
-                </header>
-                <p>User is the perfect guest, very friendly and nice.</p>
-                <p>Highly recommend</p>
-            </article>
-            
-            <article>
-                <header>
-                    <span class="author">Hollie, Madrid, Spain</span>
-                    <span class="date">July 2019</span>
-                </header>
-                <p>Etiam massa magna, dictum ac purus. Proin dignissim dolor nec scelerisque bibendum. Maecenas iaculis erat id, convallis arcu. Ut imperdiet, eros dui laoreet enim, fermentum urna. Vestibulum orci luctus et Curae arcu, ut porta massa iaculis sit amet.</p>
-                <p>Quisque a dapibus magna, non scelerisque</p>
-            </article>
-            
-            <article>
-                <header>
-                    <span class="author"> Hollie, Porto, Portugal</span>
-                    <span class="date">June 2019</span>
-                </header>
-                <p>User was a good guest,respectfull and clean.</p>
-                <p>Quisque a dapibus magna, non scelerisque</p>
-            </article>
+            <?php foreach ($pastReservations as $reservation) {
+                if( !empty($reservation['Reply']) ) { 
+                    $house = getHouseInfo($reservation['HouseID']);
+                    $author = getInfoFromID($house['OwnerID'])?>
+                    <article>
+                        <header>
+                            <span class="author"><?= $author['Name']?></span>
+                            <span class="date"><?= $reservation['ReplyDate']?></span>
+                        </header>
+                        <section class="comment">
+                            <p><?= $reservation['Reply']?></p>
+                            <p>Rating: <?=$reservation['GuestRating'] ?></p>
+                        </section>
+                    </article>    
+                <?php } ?>
+            <?php } ?>
         </section>
     </section>
-    <footer>
-        <nav>
-            <ul id="nextComments">
-                <li><a href="profile.php">&lt&lt Prev</a></li>
-                <li><a href="profile.php">1</a></li>
-                <li><a href="profile.php">2</a></li>
-                <li><a href="profile.php">3</a></li>
-                <li><a href="profile.php">Next &gt&gt</a></li>
-            </ul>
-    </nav>  
-    </footer>
 <?php 
     draw_footer();
 ?>

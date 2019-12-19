@@ -76,32 +76,24 @@
             <header>
                 <h3>Reviews</h3>
             </header>
-            <article>
-                <header>
-                    <span class="author">Tom, Paris, France</span>
-                    <span class="date">September 2019</span>
-                </header>
-                <p>User is the perfect guest, very friendly and nice.</p>
-                <p>Highly recommend</p>
-            </article>
-            
-            <article>
-                <header>
-                    <span class="author">Hollie, Madrid, Spain</span>
-                    <span class="date">July 2019</span>
-                </header>
-                <p>Etiam massa magna, dictum ac purus. Proin dignissim dolor nec scelerisque bibendum. Maecenas iaculis erat id, convallis arcu. Ut imperdiet, eros dui laoreet enim, fermentum urna. Vestibulum orci luctus et Curae arcu, ut porta massa iaculis sit amet.</p>
-                <p>Quisque a dapibus magna, non scelerisque</p>
-            </article>
-            
-            <article>
-                <header>
-                    <span class="author"> Hollie, Porto, Portugal</span>
-                    <span class="date">June 2019</span>
-                </header>
-                <p>User was a good guest,respectfull and clean.</p>
-                <p>Quisque a dapibus magna, non scelerisque</p>
-            </article>
+            <?php foreach ($UserHouses as $house) {
+                $pastReservations = getPastReservationsInHouse($house['ID']);
+                foreach($pastReservations as $reservation) {
+                    if( !empty($reservation['Comment']) ) { 
+                        $author = getInfoFromID($reservation['GuestID'])?>
+                        <article>
+                            <header>
+                                <span class="author"><?= $author['Name']?></span>
+                                <span class="date"><?= $reservation['CommentDate']?></span>
+                            </header>
+                            <section class="comment">
+                                <p><?= $reservation['Comment']?></p>
+                                <p>Rating: <?=$reservation['HouseRating'] ?></p>
+                            </section>
+                        </article>    
+                    <?php } ?>
+                <?php } ?>
+            <?php } ?>
         </section>
     </section>
     <footer>
