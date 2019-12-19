@@ -7,4 +7,6 @@
     $languages = $_GET['language'];
     $userID = getInfoFromUsername($_SESSION['username'])['ID'];
     editLanguages($userID, $languages);
+    header('Location: ' . $_SERVER['HTTP_REFERER']);  
+
 ?>

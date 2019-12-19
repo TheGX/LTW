@@ -41,5 +41,5 @@
         imagecopyresized($medium, $original, 0, 0, 0, 0, $mediumwidth, $mediumheight, $width, $height);
         imagejpeg($medium, $mediumFileName);
     }
-    header('Location: hostprofile.php');
+    header('Location: ../pages/hostprofile.php');
 ?>

@@ -7,4 +7,6 @@
     $number = $_GET['phonenumber'];
     $userID = getInfoFromUsername($_SESSION['username'])['ID'];
     editPhoneNumber($userID, $number);
+    header('Location: ' . $_SERVER['HTTP_REFERER']);  
+
 ?>

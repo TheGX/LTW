@@ -7,4 +7,6 @@
     $profession = $_GET['profession'];
     $userID = getInfoFromUsername($_SESSION['username'])['ID'];
     editProfession($userID, $profession);
+    header('Location: ' . $_SERVER['HTTP_REFERER']);  
+
 ?>

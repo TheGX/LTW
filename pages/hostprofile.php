@@ -66,7 +66,7 @@
                     <?php $reservations = getFutureReservationsInHouse($listing['ID']); 
                     foreach($reservations as $reservation) {
                         $guest=getInfoFromID($reservation['GuestID']);?>
-                        <p>Booking by <?=$guest['Name']?> <br> 
+                        <p>Booking by <a href="touristprofile.php?ownerUsername=<?=$guest['Username']?>"> <?=$guest['Name']?></a> <br>  
                         From: <?=$reservation['StartDate']?> To: <?=$reservation['EndDate']?></p>
                     <?php } ?>
                 </div>

@@ -24,7 +24,6 @@
             <?php } ?>
             <form action="../actions/action_uploadProfileImage.php" method="post" enctype="multipart/form-data">
                 Upload new photo:
-                <input type="text" name="title" placeholder="Photo Title">
                 <input type="file" name="image" id="fileToUpload">
                 <input type="submit" value="Upload">
             </form>

@@ -7,4 +7,6 @@
     $email = $_GET['email'];
     $userID = getInfoFromUsername($_SESSION['username'])['ID'];
     editEmail($userID, $email);
+    header('Location: ' . $_SERVER['HTTP_REFERER']);  
+
 ?>

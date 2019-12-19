@@ -83,10 +83,8 @@
         $medium = imagecreatetruecolor($mediumwidth, $mediumheight);
         imagecopyresized($medium, $original, 0, 0, 0, 0, $mediumwidth, $mediumheight, $width, $height);
         imagejpeg($medium, $mediumFileName);
-    
-?>  <img src="../database/images/houses/thumbs_small/<?=$houseID?>.jpg"  alt="Small profile photo">
-<img src="../database/images/houses/thumbs_medium/<?=$houseID?>.jpg" alt="Medium profile photo">
-<?php
     }
+    header('Location: ' . $_SERVER['HTTP_REFERER']);  
+
 
 ?>

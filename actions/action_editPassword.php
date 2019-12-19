@@ -11,4 +11,6 @@
         ?> <h1>Verified user</h1><?php
         editPassword($userID, $newpassword);
     }
+    header('Location: ' . $_SERVER['HTTP_REFERER']);  
+
 ?>

@@ -5,11 +5,6 @@
     include_once('../database/users.php');
     include_once('../database/houses.php');
     include_once('../database/images.php');
-
-
-    // var_dump($_POST);
-    // var_dump($_FILES);
-    // die;
     
     if(empty($_POST['place']) || empty($_POST['n_Singlebeds']) || empty($_POST['n_Doublebeds']) 
       || empty($_POST['n_bathrooms']) || empty($_POST['country']) 
@@ -67,8 +62,5 @@
             imagejpeg($medium, $mediumFileName);
         }
     }
-
-?>  <img src="../database/images/houses/thumbs_small/<?=$houseID?>.jpg"  alt="Small profile photo">
-    <img src="../database/images/houses/thumbs_medium/<?=$houseID?>.jpg" alt="Medium profile photo">
-<?php
+    header('Location: ../pages/hostprofile.php');
 ?>

@@ -7,4 +7,6 @@
     $description = $_GET['text'];
     $userID = getInfoFromUsername($_SESSION['username'])['ID'];
     editBio($userID, $description);
+    header('Location: ' . $_SERVER['HTTP_REFERER']);  
+
 ?>

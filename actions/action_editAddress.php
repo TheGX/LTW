@@ -7,4 +7,6 @@
     $address = $_GET['address'];
     $userID = getInfoFromUsername($_SESSION['username'])['ID'];
     editAddress($userID, $address);
+    header('Location: ' . $_SERVER['HTTP_REFERER']);  
+    
 ?>

@@ -44,5 +44,5 @@
         imagejpeg($medium, $mediumFileName);
     }
 
-    header('Location: touristprofile.php');
+    header('Location: ../pages/touristprofile.php');
 ?>

@@ -123,7 +123,6 @@
                     <p id="host-location"><?= $ownerInfo['Address']?></p>
                     <p id="host-language">Languages: <?= $ownerInfo['LanguagesSpoken']?></p>
                     <p id="host-contact">Contact Host: <?= $ownerInfo['Email']?></p>
-                    <!-- <a href="message.html">Contact Host!</a> -->
                 </section>
             </section>
         </section>
