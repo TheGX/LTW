@@ -4,22 +4,35 @@
     include_once('../database/connection.php');
     include_once('../database/users.php');
     include_once('../database/houses.php');
+    include_once('../database/reservations.php');
 
-    if(!isset($_SESSION['username'])){
+    if(!isset($_SESSION['username']) && !isset($_GET['houseID'])){
         header('Location: login.php');
     }
 
     $HouseID = $_GET['houseID'];
 
-    $houseInfoArray = getHouseInfo($HouseID);
-    $houseInfo = $houseInfoArray;
+    $houseInfo = getHouseInfo($HouseID);
+    $houseReservations = getPastReservationsInHouse($houseInfo['ID']);
     $ownerInfo = getInfoFromID($houseInfo['OwnerID']);
     $userID = getInfoFromUsername($_SESSION['username'])['ID'];
+    $userPastReservations = getPastReservationsFromUser($userID);
 
     if($ownerInfo['ID'] === $userID){
         $ownerView = True;
     } else
         $ownerView = False;
+    
+    // var_dump($userPastReservations);
+    // die;
+    
+    $commentView = False;
+    foreach($userPastReservations as $reservation){
+        if($reservation['HouseID']===$houseInfo['ID'] && empty($reservation['Comment']) ){
+            $commentView = True;
+            break;
+        }
+    }
     draw_header('houselist');
 ?>
     <section id="content">
@@ -28,10 +41,6 @@
                 <ul id="menu-filters" style="list-style-type:none;">
                 <li><?=$houseInfo['SingleBeds'] +2*$houseInfo['DoubleBeds']?> guests</li>
                 <li><?=$houseInfo['Bathrooms'] ?> bathroms</li>
-                <!-- <li>Kitchen</li>
-                <li>Wi-fi</li>
-                <li>Heating</li>
-                <li>Free Parking</li> -->
             </ul>
         </section>
         <section id="House-section">
@@ -122,36 +131,58 @@
                 <header>
                     <h2>Reviews</h2>
                 </header>
-                <article>
-                    <header>
-                        <span id="author">Tom</span><br>
-                        <span id="date">September 2019</span>
-                    </header>
-                    <section id="comment">
-                        <p>House is perfect. Very clean and really well located.</p>
-                        <p>Highly recommend</p>
-                    </section>
-                </article>
-                <article>
-                    <header>
-                        <span id="author">Hollie</span>
-                        <span id="date">July 2019</span>
-                    </header>
-                    <section id="comment">
-                        <p>Etiam massa magna, dictum ac purus. Proin dignissim dolor nec scelerisque bibendum. Maecenas iaculis erat id, convallis arcu. Ut imperdiet, eros dui laoreet enim, fermentum urna. Vestibulum orci luctus et Curae arcu, ut porta massa iaculis sit amet.</p>
-                        <p>Quisque a dapibus magna, non scelerisque</p>
-                    </section>
-                </article>
-                <article>
-                    <header>
-                        <span id="author"> Hollie</span>
-                        <span id="date">June 2019</span>
-                    </header>
-                    <section id="comment">
-                        <p>User was a good guest,respectfull and clean.</p>
-                        <p>Quisque a dapibus magna, non scelerisque</p>
-                    </section>
-                </article>
+                <?php if($commentView === True) { ?>
+                    <div class="reviews">
+                        <h4>Add a review:</h4>
+                        <form action="../actions/action_addReview.php" method='post'>
+                            <textarea name="text" rows="5" cols="100" required placeholder="Describe your stay so other users can know what to expect!"></textarea>
+                            <input type="hidden" name="reservationID" value="<?=$reservation['ID']?>">
+                            <h4>Rate your stay:</h4>
+                            <input type="number" name="rating" min='1' max='5' placeholder="1-5">
+                            <input type="submit" value="review">
+                        </form>
+                    </div>
+                <?php } ?>
+                <?php foreach ($houseReservations as $pastReservation ) {
+                    if(!empty($pastReservation['Comment'])) {
+                        $author = getInfoFromID($pastReservation['GuestID'])?>
+                        <article>
+                            <header>
+                                <span class="author"><?= $author['Name']?></span>
+                                <span class="date"><?= $pastReservation['CommentDate']?></span>
+                            </header>
+                            <section class="comment">
+                                <p><?= $pastReservation['Comment']?></p>
+                                <p>Rating: <?=$pastReservation['HouseRating'] ?></p>
+                            </section>
+                        </article>
+                        <?php if($ownerView === true && empty($pastReservation['Reply'])) { ?>
+                            <div class="reply">
+                                <h4>Add a reply:</h4>
+                                <form action="../actions/action_addReply.php" method='post'>
+                                    <textarea name="text" rows="3" cols="100" required placeholder="Reply to this review!"></textarea>
+                                    <input type="hidden" name="pastReservationID" value="<?=$pastReservation['ID']?>">
+                                    <h4>Rate your guest:</h4>
+                                    <input type="number" name="rating" min='1' max='5' placeholder="1-5">
+                                    <input type="submit" value="reply">
+                                </form>
+                            </div>
+                        <?php } 
+                        if(!empty($pastReservation['Reply'])) {?>
+                            <article class="reply">
+                                <header>
+                                    <h4>Owner reply</h4>
+                                    <span class="author"><?= $ownerInfo['Name']?></span>
+                                    <span class="date"><?= $pastReservation['ReplyDate']?></span>
+                                </header>
+                                <section class="comment">
+                                    <p><?= $pastReservation['Reply']?></p>
+                                    <p>Guest rating: <?=$pastReservation['GuestRating'] ?></p>
+                                </section>
+                            </article>
+                        <?php }?>
+                    <?php }?>
+                <?php }?>
         </section>
     </section>
 
