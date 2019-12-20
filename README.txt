@@ -13,9 +13,11 @@ Nuno Gomes -
 Marta Lobo - 
 
 Credentials and Relevant Information
-
-
-
+3 main accounts ->         Username: thegx            Pass: 12344
+                           Username: nunogomes        Pass: 12344
+                           Username: martandradelobo  Pass: 12344
+Other testing accounts ->  Username: thisuser         Pass: 12344
+                           Username: test             Pass: 123 
 
 
 External Libraries
