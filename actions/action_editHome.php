@@ -4,9 +4,6 @@
     include_once('../database/users.php');
     include_once('../database/houses.php');
 
-    var_dump($_POST);
-    var_dump($_FILES);
-    // die;
     $houseID = $_POST['houseID'];       
     $houseInfo = getHouseInfo($houseID);
 
@@ -47,7 +44,7 @@
     
     editHouse($houseID, $title, json_encode($address), $dailyCost, $houseID, $bathrooms, $singleBeds, $doubleBeds, $description, $houseType);
 
-    if(!empty($_FILES)){
+    if(!empty($_FILES['pic1']['name'])){
         // Generate filenames for original, small and medium files
         $originalFileName = "../database/images/houses/originals/$houseID.jpg";
         $smallFileName    = "../database/images/houses/thumbs_small/$houseID.jpg";
